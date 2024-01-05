@@ -1,0 +1,25 @@
+header {
+    background-color: rgb(233, 84, 32);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 3rem;
+    padding: 0 2rem;
+    justify-content: space-between;
+    color: white;
+}
+
+
+.nav-title {
+    font-size: 1.25rem;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+a {
+    cursor: pointer;
+}
