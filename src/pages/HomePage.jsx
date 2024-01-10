@@ -12,7 +12,8 @@ function HomePage() {
     <div>
       <Header />
       <Hero />
-      <div style={{  margin: "auto", padding: '0 1rem' }}>
+      {/* <div style={{  margin: "auto", padding: '0 1rem' }} > */}
+      <div className="container">
         <Donate />
         <h2>URLs</h2>
         {endpoints.map((endpoint, index) => (

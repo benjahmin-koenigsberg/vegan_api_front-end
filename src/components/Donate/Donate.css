@@ -1,7 +1,7 @@
 .donate-container{
     background-color: #D7F0DB;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
