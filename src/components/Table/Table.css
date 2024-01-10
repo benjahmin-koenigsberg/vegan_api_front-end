@@ -1,0 +1,28 @@
+.table-container {
+    margin: 1rem auto;
+}
+
+.table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: solid .1rem black;
+    border-radius: .2rem;
+}
+
+button {
+    margin: 0;
+}
+
+.preview-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.hidden {
+    display: none;
+}

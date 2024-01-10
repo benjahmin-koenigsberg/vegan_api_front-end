@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import "./UploadForm.css";
 import axios from "axios";
@@ -5,17 +7,22 @@ import { config } from "dotenv";
 
 function UploadForm() {
   const [image, setImage] = useState(null);
-  const [form, setForm] = useState({created_by:'', tag: ''})
+  const [form, setForm] = useState({ created_by: "", tag: "" });
   const [memeUrl, setMemeUrl] = useState();
-  const CLOUDINARY_URL =
-    "https://api.cloudinary.com/v1_1/benjahmin/image/upload";
-  const SERVER_URL = "http://localhost:8080/api/v1/add";
-  const CLOUDINARY_UPLOAD_PRESET = "vegan_meme_api";
 
+  // const CLOUDINARY_URL =
+  //   "https://api.cloudinary.com/v1_1/benjahmin/image/upload";
+  // const SERVER_URL = "http://localhost:8080/api/v1/add";
+  // const CLOUDINARY_UPLOAD_PRESET = "vegan_meme_api";
+
+  const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+  const CLOUDINARY_UPLOAD_PRESET = import.meta.env
+    .VITE_CLOUDNIARY_UPLOAD_PRESET;
 
   const handleForm = (e) => {
-      setForm({ ...form, [e.target.name]: e.target.value });
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleImage = (e) => {
     const image = e.target.files[0];
@@ -40,13 +47,19 @@ function UploadForm() {
       console.error(error);
     }
 
+    await axios.post(SERVER_URL, {
+      created_by: form.created_by,
+      meme_url: memeUrl,
+      tag: form.tag,
+    });
 
-   await axios.post(SERVER_URL, {
-        created_by: form.created_by,
-        meme_url: memeUrl,
-        tag: form.tag,
-    })
+    confirm("Meme uploaded successful!");
+    if (confirm) {
+      setForm({ ...form, created_by: "", tag: "" });
+      document.getElementById("file-field").value = null;
+    }
 
+    // setImage(null)
   };
 
   return (
@@ -60,6 +73,7 @@ function UploadForm() {
                 <div className="label-input-div">
                   <label htmlFor="file">Select a meme</label>
                   <input
+                    id="file-field"
                     type="file"
                     name="file"
                     onChange={(e) => handleImage(e)}
