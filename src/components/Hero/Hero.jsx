@@ -11,7 +11,7 @@ function Hero() {
       axios.get("http://localhost:8080/api/v1/all").then((res) => {
         setNumOfMemes(res.data.data.length);
       });
-    });
+    }, []);
 
   return (
     <section className="hero-section">

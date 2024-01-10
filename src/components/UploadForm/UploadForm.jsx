@@ -1,11 +1,13 @@
-/** @format */
-
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./UploadForm.css";
 import axios from "axios";
 import { config } from "dotenv";
 
 function UploadForm() {
+
+  const navigate = useNavigate()
+
   const [image, setImage] = useState(null);
   const [form, setForm] = useState({ created_by: "", tag: "" });
   const [memeUrl, setMemeUrl] = useState();
@@ -53,10 +55,12 @@ function UploadForm() {
       tag: form.tag,
     });
 
-    confirm("Meme uploaded successful!");
+    alert("Meme uploaded successful!");
+    
     if (confirm) {
-      setForm({ ...form, created_by: "", tag: "" });
-      document.getElementById("file-field").value = null;
+      setForm({ created_by: "", tag: "" });
+      navigate('/')
+      //document.getElementById("file-field").value = null;
     }
 
     // setImage(null)
