@@ -17,24 +17,24 @@ function AccordionJsonItem({ endpoint, index }) {
 
   return (
     <div className="accordion-item">
-      <h2 className="accordion-header" id="flush-headingUrl">
+      <h2 className="accordion-header" id="flush-headingJson">
         <button
           onClick={handlePreview}
           className="accordion-button collapsed"
           type="button"
           data-bs-toggle="collapse"
           //target
-          data-bs-target={`#flush-collapse${index}`}
+          data-bs-target={`#flush-collapse${index}-json`}
           aria-expanded="false"
-          aria-controls="flush-collapseUrl">
+          aria-controls="flush-collapseJson">
           {endpoint.url}
         </button>
       </h2>
       <div
         //id
-        id={`flush-collapse${index}`}
+        id={`flush-collapse${index}-json`}
         className="accordion-collapse collapse"
-        aria-labelledby="flush-headingUrl"
+        aria-labelledby="flush-headingJson"
         data-bs-parent="#accordionFlushExample">
         <div className="accordion-body">
           <p className="code p-2" style={{wordWrap: "break-word"}}>{json}</p>

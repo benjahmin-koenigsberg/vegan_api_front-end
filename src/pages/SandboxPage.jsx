@@ -14,7 +14,7 @@ function SandboxPage() {
           {endpoints.map((endpoint, index) => (
             <AccordionUrlItem endpoint={endpoint} index={index} />
           ))}
-          <h2>JSON</h2>
+          <h2 className="my-4">JSON</h2>
           {JSON_endpoints.map((endpoint, index) => (
             <AccordionJsonItem endpoint={endpoint} index={index} />
           ))}

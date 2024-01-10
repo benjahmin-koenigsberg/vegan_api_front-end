@@ -7,7 +7,7 @@ import axios from "axios";
 
 function AccordionUrlItem({ endpoint, index }) {
 
-  const [preview, setPreview] = useState({url: '', quote: '', author: ''});
+  const [preview, setPreview] = useState({ url: '', quote: '', author: ''});
 
   const handlePreview = async () => {
     await axios
@@ -34,7 +34,7 @@ function AccordionUrlItem({ endpoint, index }) {
             type="button"
             data-bs-toggle="collapse"
             //target
-            data-bs-target={`#flush-collapse${index}`}
+            data-bs-target={`#flush-collapse${index}-url`}
             aria-expanded="false"
             aria-controls={`#flush-collapse${index}`}>
             {endpoint.url}
@@ -42,7 +42,7 @@ function AccordionUrlItem({ endpoint, index }) {
         </h2>
 
         <div
-          id={`flush-collapse${index}`}
+          id={`flush-collapse${index}-url`}
           className="accordion-collapse collapse"
           aria-labelledby="flush-headingUrl"
           data-bs-parent="#accordionFlushExample">
