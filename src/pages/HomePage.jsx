@@ -3,22 +3,25 @@ import Header from "../components/Header/Header"
 import Hero from "../components/Hero/Hero"
 import Table from '../components/Table/Table'
 import Donate from "../components/Donate/Donate";
+import { endpoints, JSON_endpoints } from "./endPoints";
 
 function HomePage() {
-
-
 
 
   return (
     <div>
       <Header />
       <Hero />
-      <div style={{ width: "90%", margin: "auto" }}>
+      <div style={{  margin: "auto", padding: '0 1rem' }}>
         <Donate />
         <h2>URLs</h2>
-        <Table
-          url={"http://localhost:8080/api/v1/random"}
-        />
+        {endpoints.map((endpoint, index) => (
+          <Table url={endpoint.url} type={endpoint.type} key={index} />
+        ))}
+        <h2>JSON</h2>
+        {JSON_endpoints.map((endpoint, index) => (
+          <Table url={endpoint.url} type={endpoint.type} key={index} />
+        ))}
       </div>
     </div>
   );

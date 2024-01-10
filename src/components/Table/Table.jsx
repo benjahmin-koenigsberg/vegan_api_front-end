@@ -1,33 +1,52 @@
 /** @format */
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Table.css";
 import axios from "axios";
 
-function Table({ url }) {
+function Table({ url, type }) {
+  const navigate = useNavigate();
   const [preview, setPreview] = useState("");
 
   const handlePreview = async () => {
-    const window = document.getElementById("preview-window");
-    window.classList.toggle("hidden");
+    // const window = document.getElementById("preview-window");
+    // window.classList.toggle("hidden");
 
-    await axios
-      .get(url)
-      .then((res) => {
-        setPreview(res.data.data[0].meme_url);
-      })
-      .catch((err) => console.log(err));
+    if (type === "meme") {
+      await axios
+        .get(url)
+        .then((res) => {
+          // setPreview(res.data.data[0].meme_url);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      await axios
+        .get(url)
+        .then((res) => {
+          //console.log(res.data.data.quote)
+          // setPreview(res.data.data.quote);
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
     <div className="table-container">
       <div className="table">
-        <h4>{url}</h4>
-        <button onClick={handlePreview}>test</button>
+        <p>{url}</p>
+        {/* <button onClick={handlePreview}>test</button> */}
+        <a href={url}>
+          <button>test</button>
+        </a>
       </div>
-      <div className="preview-container hidden" id="preview-window">
-        <img src={preview} className="img-thumbnail img-fluid" />
-      </div>
+      {/* <div className="preview-container hidden" id="preview-window">
+        {type === "meme" ? (
+          <img src={preview} className="img-thumbnail img-fluid" />
+        ) : (
+          <quote className="text-center">{preview}</quote>
+        )}
+      </div> */}
     </div>
   );
 }
