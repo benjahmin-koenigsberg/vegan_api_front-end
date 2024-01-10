@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <div>
-        <Link>
+        <Link to="/">
           <span className="nav-title">Vegan Meme API</span>
         </Link>
       </div>
