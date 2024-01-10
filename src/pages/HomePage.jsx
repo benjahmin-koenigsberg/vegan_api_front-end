@@ -4,9 +4,9 @@ import Hero from "../components/Hero/Hero"
 import Table from '../components/Table/Table'
 import Donate from "../components/Donate/Donate";
 import { endpoints, JSON_endpoints } from "./endPoints";
+import AccordionUrlItem from "../components/AccordionUrlItem/AccordionUrlItem";
 
 function HomePage() {
-
 
   return (
     <div>
@@ -19,6 +19,12 @@ function HomePage() {
         {endpoints.map((endpoint, index) => (
           <Table url={endpoint.url} type={endpoint.type} key={index} />
         ))}
+        {/* <div className="accordion accordion-flush" id="accordionFlushExample">
+          {endpoints.map((endpoint, index) => (
+            <AccordionUrlItem endpoint={endpoint} key={index} />
+          ))}
+        </div> */}
+
         <h2>JSON</h2>
         {JSON_endpoints.map((endpoint, index) => (
           <Table url={endpoint.url} type={endpoint.type} key={index} />

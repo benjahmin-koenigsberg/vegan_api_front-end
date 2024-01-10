@@ -36,8 +36,8 @@ function AccordionJsonItem({ endpoint, index }) {
         className="accordion-collapse collapse"
         aria-labelledby="flush-headingUrl"
         data-bs-parent="#accordionFlushExample">
-        <div className="accordion-body ">
-          <p className="code">{json}</p>
+        <div className="accordion-body">
+          <p className="code p-2" style={{wordWrap: "break-word"}}>{json}</p>
         </div>
       </div>
     </div>

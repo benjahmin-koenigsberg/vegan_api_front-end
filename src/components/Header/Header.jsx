@@ -22,7 +22,7 @@ function Header() {
               <li>About</li>
             </Link>
             <Link to="/donate">
-              <li>Buy Me a Coffee</li>
+              <li>Buy Me a Coffee ☕</li>
             </Link>
           </ul>
         </nav>
