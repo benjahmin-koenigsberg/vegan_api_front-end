@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+.quote {
+    background-color: lightgray;
+}
+
+.code {
+   font-family: 'Source Code Pro', monospace;
+}

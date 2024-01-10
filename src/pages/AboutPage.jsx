@@ -6,7 +6,10 @@ function AboutPage() {
     <div>
       <Header />
       <div className="container mt-5">
-        <Accordion />
+        <h2>About</h2>
+        <div className="container mt-5">
+          <Accordion />
+        </div>
       </div>
     </div>
   );

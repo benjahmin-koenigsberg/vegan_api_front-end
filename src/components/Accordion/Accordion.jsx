@@ -1,3 +1,5 @@
+/** @format */
+
 function Accordion() {
   return (
     <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -31,14 +33,14 @@ function Accordion() {
             className="accordion-button collapsed"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo"
+            data-bs-target="#flush-collapseJson"
             aria-expanded="false"
-            aria-controls="flush-collapseTwo">
+            aria-controls="flush-collapseJson">
             Why vegan memes?
           </button>
         </h2>
         <div
-          id="flush-collapseTwo"
+          id="flush-collapseJson"
           className="accordion-collapse collapse"
           aria-labelledby="flush-headingTwo"
           data-bs-parent="#accordionFlushExample">
