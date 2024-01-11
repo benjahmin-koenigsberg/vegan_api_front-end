@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import Table from "../components/Table/Table";
 import Donate from "../components/Donate/Donate";
-import { endpoints, JSON_endpoints } from "../assets/endPoints";
+import { endpoints } from "../assets/endPoints";
 import AccordionUrlItem from "../components/AccordionUrlItem/AccordionUrlItem";
 import AccordionJsonItem from "../components/AccordionJsonItem/AccordionJsonItem";
 import UrlCard from "../components/UrlCard/UrlCard"

@@ -3,7 +3,7 @@ import Accordion from "../components/Accordion/Accordion";
 
 function AboutPage() {
   return (
-    <div>
+    <div >
       <Header />
       <div className="container mt-5">
         <h2>About</h2>

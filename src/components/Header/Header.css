@@ -3,15 +3,14 @@ header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    height: 3rem;
-    padding: 0 2rem;
+    padding: 1.5rem 3rem .5rem 3rem;
     justify-content: space-between;
     color: white;
 }
 
 
 .nav-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 }
 
 ul {
@@ -22,4 +21,13 @@ ul {
 
 a {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+        .nav-title {
+           margin-bottom: .5rem;
+        }
 }

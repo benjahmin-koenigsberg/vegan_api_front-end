@@ -2,7 +2,7 @@
 
 function Accordion() {
   return (
-    <div className="accordion accordion-flush" id="accordionFlushExample">
+    <div className="accordion accordion-flush lh-lg border rounded shadow" id="accordionFlushExample">
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingOne">
           <button
@@ -21,9 +21,9 @@ function Accordion() {
           aria-labelledby="flush-headingOne"
           data-bs-parent="#accordionFlushExample">
           <div className="accordion-body">
-            Placeholder content for this accordion, which is intended to
-            demonstrate the <code>.accordion-flush</code> class. This is the
-            first item's accordion body.
+            A meme is an idea, behavior, or style that spreads by means of
+            imitation from person to person within a culture and often carries
+            symbolic meaning representing a particular phenomenon or theme.
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@ function Accordion() {
             data-bs-target="#flush-collapseJson"
             aria-expanded="false"
             aria-controls="flush-collapseJson">
-            Why vegan memes?
+            Why memes?
           </button>
         </h2>
         <div
@@ -75,12 +75,10 @@ function Accordion() {
           aria-labelledby="flush-headingThreer"
           data-bs-parent="#accordionFlushExample">
           <div className="accordion-body">
-            Placeholder content for this accordion, which is intended to
-            demonstrate the <code>.accordion-flush</code> class. This is the
-            third item's accordion body. Nothing more exciting happening here in
-            terms of content, but just filling up the space to make it look, at
-            least at first glance, a bit more representative of how this would
-            look in a real-world application.
+            Memes help the world’s growing community of vegans (it’s estimated
+            there are roughly 8 million globally) to bond and spread
+            information, but also call out some of the world’s destructive
+            industries, while still maintaining an air of humor
           </div>
         </div>
       </div>
@@ -134,13 +132,36 @@ function Accordion() {
           className="accordion-collapse collapse"
           aria-labelledby="flush-headingFive"
           data-bs-parent="#accordionFlushExample">
-          <div className="accordion-body">
-            Placeholder content for this accordion, which is intended to
-            demonstrate the <code>.accordion-flush</code> class. This is the
-            third item's accordion body. Nothing more exciting happening here in
-            terms of content, but just filling up the space to make it look, at
-            least at first glance, a bit more representative of how this would
-            look in a real-world application.
+
+          <div className="accordion-body d-flex flex-column align-items-center justify-content-center gap-4">
+
+            <div className="d-flex">
+              <img
+                src="https://benjahminkoenigsberg.com/images/my-avatar.png"
+                className="w-25"
+              />
+              <div className=" px-4">
+                I’m a Full Stack Developer with a passion for problem-solving
+                and creating memorable, accessible and efficient web
+                applications. I have experience developing web applications
+                using modern JavaScript technologies such as React, CSS
+                libraries and Node. I also have over 12 years of experience as a
+                massage therapist, helping elite athletes to get and stay out of
+                pain. This background has helped me grow as a reliable and
+                results-driven team player that delivers with a growth mindset,
+                effective communication, problem solving and commitment to
+                success. I am always eager to learn new skills and technologies
+                while delivering solutions that exceed expectations.
+              </div>
+
+            </div>
+
+            <div className="d-flex justify-content-between w-75 mt-2">
+              <button>github 💻</button>
+              <button>portfolio 🌎</button>
+              <button>email 📧</button>
+            </div>
+
           </div>
         </div>
       </div>
