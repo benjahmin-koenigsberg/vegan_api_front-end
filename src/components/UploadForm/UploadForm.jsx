@@ -1,10 +1,9 @@
-/** @format */
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UploadForm.css";
 import axios from "axios";
 import { config } from "dotenv";
+import { tagOptions } from "../../assets/endPoints";
 
 function UploadForm() {
   const navigate = useNavigate();
@@ -109,7 +108,10 @@ function UploadForm() {
                 <div className="label-input-div">
                   <label>Tag</label>
                   <select name="tag" value={form.tag} onChange={handleForm}>
-                    <option value="humor" id="">
+                    {tagOptions.map((tag)=>(
+                      <option value={tag}>{tag}</option>
+                    ))}
+                    {/* <option value="humor" id="">
                       Humor
                     </option>
                     <option value="excuses" id="">
@@ -135,7 +137,7 @@ function UploadForm() {
                     </option>
                     <option value="health" id="">
                       Health
-                    </option>
+                    </option> */}
                   </select>
                 </div>
                 {/* <button onClick={handleApi}>Upload</button> */}

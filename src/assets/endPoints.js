@@ -82,6 +82,20 @@ const endpoints = [
 ]
 
 
+const tagOptions = [
+'humor',
+'cognitive dissonance',
+'denial',
+'protein',
+'excuses',
+'speciesism',
+'ignorance',
+'health',
+'enviroment',
+'food',
+'social',
+'carnism',
+'serious'
+]
 
-
-export { endpoints }
+export { endpoints, tagOptions }

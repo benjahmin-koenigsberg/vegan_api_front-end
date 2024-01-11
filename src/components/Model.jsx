@@ -2,6 +2,7 @@
 import { Modal, Button } from "react-bootstrap";
 
 
+
 function Model({handleClose, preview, endpoint, show, handlePreview}) {
   return (
     <Modal show={show} onHide={handleClose} fullscreen>
@@ -9,19 +10,18 @@ function Model({handleClose, preview, endpoint, show, handlePreview}) {
         <Modal.Title></Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {
-        endpoint.type === "meme" ?
-        (
-        <div className="text-center">
-          <img src={preview.url} />
-        </div>
+        {endpoint.type === "meme" ? (
+          <div className="text-center">
+            <img src={preview.url} className="img-fluid" />
+          </div>
         ) : (
           <div className="text-center m-auto p-5">
-            <blockquote className="">{preview.quote}</blockquote>
+            <blockquote className="display-6" style={{ fontFamily: "Josefin Sans" }}>
+              {preview.quote}
+            </blockquote>
             <p className="">- {preview.author}</p>
           </div>
-        )
-        }
+        )}
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center gap-5">
         <Button variant="secondary" onClick={handleClose}>
@@ -32,7 +32,6 @@ function Model({handleClose, preview, endpoint, show, handlePreview}) {
         </Button>
       </Modal.Footer>
     </Modal>
-
   );
 }
 export default Model;
