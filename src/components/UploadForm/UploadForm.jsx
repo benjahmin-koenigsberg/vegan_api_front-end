@@ -19,8 +19,7 @@ function UploadForm() {
 
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
   const SERVER_URL = import.meta.env.VITE_SERVER_URL;
-  const CLOUDINARY_UPLOAD_PRESET = import.meta.env
-    .VITE_CLOUDNIARY_UPLOAD_PRESET;
+  const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDNIARY_UPLOAD_PRESET;
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -56,7 +55,7 @@ function UploadForm() {
     });
 
     alert("Meme uploaded successful!");
-    
+
     if (confirm) {
       setForm({ created_by: "", tag: "" });
       navigate('/')

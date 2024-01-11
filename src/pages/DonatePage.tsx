@@ -3,9 +3,7 @@ import Header from "../components/Header/Header";
 
 function DonatePage() {
   return (
-    <div>
-      <Header />
-    </div>
+ <Header />
   );
 }
 export default DonatePage;
