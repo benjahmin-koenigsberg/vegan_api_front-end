@@ -12,7 +12,7 @@
 
 html{
   width: 100vw;
-  
+
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 
 }
 
-a {
+a , a:hover {
   list-style-type: none;
   text-decoration: none;
   color: inherit;

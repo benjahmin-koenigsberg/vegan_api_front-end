@@ -1,8 +1,6 @@
 /** @format */
 
-// import { style } from 'react-syntax-highlighter/dist/esm/styles/prism'
-// import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 import "./AccordionUrlItem.css";
 import { useState } from "react";
 import axios from "axios";
@@ -57,12 +55,11 @@ function AccordionUrlItem({ endpoint, index }) {
           className="accordion-collapse collapse"
           aria-labelledby="flush-headingUrl"
           data-bs-parent="#accordionFlushExample">
-          <div className="accordion-body">
+          <div className="accordion-body bg-light">
             <div className="d-flex flex-column">
               <a href={endpoint.url} className="mb-2 mx-auto">
                 <button>visit</button>
               </a>
-
               {endpoint.type === "meme" ? (
                 <div className="d-flex justify-content-center">
                   <img src={preview.url} className="img-thumbnail" />
@@ -76,16 +73,6 @@ function AccordionUrlItem({ endpoint, index }) {
                 </div>
               )}
             </div>
-            {/* <div className="m-auto code p-4">
-              <p>{endpoint.code}</p>
-              <SyntaxHighlighter
-              language="javascript"
-              style={dark}
-              className="code">
-                axios .get(url) .then((res) console.log(res)) .catch((err)
-                console.log(res))
-            </SyntaxHighlighter>
-            </div> */}
           </div>
         </div>
       </div>
