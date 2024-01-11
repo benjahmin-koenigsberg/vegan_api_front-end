@@ -37,7 +37,12 @@ function AccordionJsonItem({ endpoint, index }) {
         aria-labelledby="flush-headingJson"
         data-bs-parent="#accordionFlushExample">
         <div className="accordion-body">
+           <div className="d-flex flex-column">
+              <a href={endpoint.url} className="mb-2 mx-auto">
+                <button>visit</button>
+              </a>
           <p className="code p-2" style={{wordWrap: "break-word"}}>{json}</p>
+        </div>
         </div>
       </div>
     </div>

@@ -1,10 +1,5 @@
 const endpoints = [
-    // {
-    //     description: "Get all memes",
-    //     url: 'http://localhost:8080/api/v1/all',
-    //     response: '',
-    //     type: 'meme'
-    // },
+
     {
         description: "Get a random meme",
         url: 'http://localhost:8080/api/v1/random',
@@ -16,15 +11,10 @@ const endpoints = [
         })
         .catch((err) => console.log(err));`
     },
-    // {
-    //     description: "Get list all tags",
-    //     url: '',
-    //     response: '',
-    //     type: 'meme'
-    // },
+
     {
         description: "Get meme by ID",
-        url: 'http://localhost:8080/api/v1/:id',
+      url: 'http://localhost:8080/api/v1/id/659714127649e6cbb4478bf6',
         response: '',
         type: 'meme',
         code: `await axios
@@ -33,18 +23,7 @@ const endpoints = [
         })
         .catch((err) => console.log(err));`
     },
-    // {
-    //     description: "Get all memes by tag",
-    //     url: '',
-    //     response: '',
-    //     type: 'meme'
-    // },
-    // {
-    //     description: "Get all quotes",
-    //     url: 'http://localhost:8080/api/v1/quotes/all',
-    //     response: '',
-    //     type: 'quote'
-    // },
+
     {
         description: "Get random quote",
         url: 'http://localhost:8080/api/v1/quotes/random',
@@ -56,15 +35,10 @@ const endpoints = [
         })
         .catch((err) => console.log(err));`
     },
-    // {
-    //     description: "Get list of authors",
-    //     url: 'http://localhost:8080/api/v1/quotes/authors',
-    //     response: '',
-    //     type: 'quote'
-    // },
+
     {
         description: "Get all quotes by author",
-        url: 'http://localhost:8080/api/v1/quotes/:author',
+      url: 'http://localhost:8080/api/v1/quotes/Joaquin Phoenix',
         response: '',
         type: 'quote',
         code: `await axios
@@ -112,7 +86,7 @@ const JSON_endpoints = [
         .catch((err) => console.log(err));`
     }, {
         description: "Get JSON of meme by ID",
-        url: 'http://localhost:8080/api/v1/:id',
+      url: 'http://localhost:8080/api/v1/id/659714127649e6cbb4478bf6',
         response: '',
         type: 'meme',
         code: `await axios
@@ -122,7 +96,7 @@ const JSON_endpoints = [
         .catch((err) => console.log(err));`
     }, {
         description: "Get JSON of memes by tag",
-        url: 'http://localhost:8080/api/v1/:tag',
+        url: 'http://localhost:8080/api/v1/tags/protein',
         response: '',
         type: 'meme',
         code: `await axios

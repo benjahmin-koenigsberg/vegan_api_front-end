@@ -15,9 +15,6 @@ function Header() {
             <Link to="/upload">
               <li>Upload</li>
             </Link>
-            <Link to="/sandbox">
-              <li>Sandbox</li>
-            </Link>
             <Link to="/about">
               <li>About</li>
             </Link>
