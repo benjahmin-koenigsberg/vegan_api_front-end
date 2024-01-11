@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 import Table from "../components/Table/Table";
 import AccordionUrlItem from "../components/AccordionUrlItem/AccordionUrlItem";
 import AccordionJsonItem from "../components/AccordionJsonItem/AccordionJsonItem";
-import { endpoints, JSON_endpoints } from "../assets/endPoints";
+import { endpoints } from "../assets/endPoints";
 
 function SandboxPage() {
   return (

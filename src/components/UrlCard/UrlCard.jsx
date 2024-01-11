@@ -43,7 +43,7 @@ useEffect(()=>{
 
   return (
     <>
-      <table className="table bg-light">
+      <table className="table bg-light border rounded shadow">
         <thead className="">
           <tr>
             <th scope="col " className="table-text">
