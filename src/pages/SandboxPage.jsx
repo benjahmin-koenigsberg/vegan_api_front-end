@@ -69,8 +69,8 @@ function SandboxPage() {
                 <div className="label-input-div">
                   <label htmlFor="file">Select type of content</label>
                   <select name="type" value={form.type} onChange={handleForm}>
-                    <option value="meme">Memes</option>
-                    <option value="quote">Quote</option>
+                    <option value="memes">Memes</option>
+                    <option value="quotes">Quote</option>
                   </select>
                 </div>
 
@@ -138,7 +138,7 @@ function SandboxPage() {
             wrapLines={true}
             language="javascript"
             style={dark}>
-            {`${baseUrl}/${form.type}/${form.author || form.tag}/${form.id}`}
+            {`${baseUrl}/${form.type}/authors/${form.author || form.tag}/${form.id}`}
           </SyntaxHighlighter>
         </div>
       </div>

@@ -7,9 +7,9 @@ function Donate() {
       <h5>
         Hey ! Do you like Vegan Meme API? Do you want to support the project?
       </h5>
-      <Link to='/donate'>
+         <a href="https://www.buymeacoffee.com/benjahmin" target='_blank'>
         <button>Buy me a coffee ☕</button>
-      </Link>
+      </a>
     </div>
   );
 }

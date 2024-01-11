@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header >
+    <header>
       <div>
         <Link to="/">
           <span className="nav-title">Vegan Meme API</span>
@@ -12,7 +12,7 @@ function Header() {
       <div>
         <nav>
           <ul className="nav-items">
-            <Link to="/upload">
+            <Link to="/sandbox">
               <li>Sandbox</li>
             </Link>
             <Link to="/upload">
@@ -21,9 +21,9 @@ function Header() {
             <Link to="/about">
               <li>About</li>
             </Link>
-            <Link to="/donate">
+            <a href="https://www.buymeacoffee.com/benjahmin" target='_blank'>
               <li>Buy Me a Coffee ☕</li>
-            </Link>
+            </a>
           </ul>
         </nav>
       </div>
