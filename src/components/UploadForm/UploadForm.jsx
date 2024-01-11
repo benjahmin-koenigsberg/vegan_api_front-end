@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UploadForm.css";
@@ -12,14 +14,14 @@ function UploadForm() {
   const [form, setForm] = useState({ created_by: "", tag: "" });
   const [memeUrl, setMemeUrl] = useState("");
 
-  // const CLOUDINARY_URL =
-  //   "https://api.cloudinary.com/v1_1/benjahmin/image/upload";
+  //const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/benjahmin/image/upload";
   const SERVER_URL = "http://localhost:8080/api/v1/add";
   // const CLOUDINARY_UPLOAD_PRESET = "vegan_meme_api";
 
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
   //const SERVER_URL = import.meta.env.VITE_SERVER_URL;
   //const VITE_CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDNIARY_UPLOAD_PRESET;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -40,7 +42,8 @@ function UploadForm() {
 
     try {
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/benjahmin/image/upload",
+        CLOUDINARY_URL,
+        // "https://api.cloudinary.com/v1_1/benjahmin/image/upload",
         formData
       );
       setMemeUrl(response.data.url);
@@ -49,14 +52,14 @@ function UploadForm() {
       console.error(error);
     }
 
-    setTimeout(async () => {
       await axios.post(SERVER_URL, {
         created_by: form.created_by,
         meme_url: memeUrl,
         tag: form.tag,
       });
-      alert("Meme uploaded successful!");
-    }, 3000);
+
+      alert('Meme successfully uploaded! 👍')
+     // console.log('meme successfully uploaded! 👍')
   };
 
   // const saveToDb = async () => {
@@ -108,39 +111,11 @@ function UploadForm() {
                 <div className="label-input-div">
                   <label>Tag</label>
                   <select name="tag" value={form.tag} onChange={handleForm}>
-                    {tagOptions.map((tag)=>(
+                    {tagOptions.map((tag) => (
                       <option value={tag}>{tag}</option>
                     ))}
-                    {/* <option value="humor" id="">
-                      Humor
-                    </option>
-                    <option value="excuses" id="">
-                      Excuses
-                    </option>
-                    <option value="carnism" id="">
-                      Carnism
-                    </option>
-                    <option value="speciesism" id="">
-                      Speciesism
-                    </option>
-                    <option value="protein" id="">
-                      Protien
-                    </option>
-                    <option value="cignitive dissonance" id="">
-                      Cognitive dissonance
-                    </option>
-                    <option value="food" id="">
-                      Food
-                    </option>
-                    <option value="enviroment" id="">
-                      Enviroment
-                    </option>
-                    <option value="health" id="">
-                      Health
-                    </option> */}
                   </select>
                 </div>
-                {/* <button onClick={handleApi}>Upload</button> */}
                 <button onClick={handleApi}>Upload</button>
               </form>
             </div>

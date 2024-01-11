@@ -8,6 +8,9 @@ header {
     color: white;
 }
 
+.logo{
+    height: 3rem;
+}
 
 .nav-title {
     font-size: 1.5rem;

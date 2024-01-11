@@ -29,7 +29,7 @@ useEffect(()=>{
     await axios
       .get(endpoint.url)
       .then((res) => {
-        //console.log(res.data.data);
+        console.log(res.data.data);
          setPreview({
             url: res.data.data,
             quote: res.data.data.quote,

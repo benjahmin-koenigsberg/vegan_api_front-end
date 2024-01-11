@@ -1,12 +1,16 @@
 import './Header.css'
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 function Header() {
   return (
     <header>
       <div>
         <Link to="/">
-          <span className="nav-title">Vegan Meme API</span>
+          <span className="nav-title">
+            <img src={logo} className='logo'/>
+            Vegan Meme API
+          </span>
         </Link>
       </div>
       <div>
@@ -21,7 +25,7 @@ function Header() {
             <Link to="/about">
               <li>About</li>
             </Link>
-            <a href="https://www.buymeacoffee.com/benjahmin" target='_blank'>
+            <a href="https://www.buymeacoffee.com/benjahmin" target="_blank">
               <li>Buy Me a Coffee ☕</li>
             </a>
           </ul>
