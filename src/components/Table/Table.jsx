@@ -10,8 +10,7 @@ function Table({ url, type }) {
   const [preview, setPreview] = useState("");
 
   const handlePreview = async () => {
-    // const window = document.getElementById("preview-window");
-    // window.classList.toggle("hidden");
+
 
     if (type === "meme") {
       await axios
@@ -32,22 +31,6 @@ function Table({ url, type }) {
   };
 
   return (
-    // <div className="table-container">
-    //   <div className="table">
-    //     <p>{url}</p>
-    //     {/* <button onClick={handlePreview}>test</button> */}
-    //     <a href={url}>
-    //       <button>test</button>
-    //     </a>
-    //   </div>
-    //   {/* <div className="preview-container hidden" id="preview-window">
-    //     {type === "meme" ? (
-    //       <img src={preview} className="img-thumbnail img-fluid" />
-    //     ) : (
-    //       <quote className="text-center">{preview}</quote>
-    //     )}
-    //   </div> */}
-    // </div>
     <>
       <table className="table bg-light">
         <thead className="">
