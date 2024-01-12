@@ -6,6 +6,8 @@ import "./UploadForm.css";
 import axios from "axios";
 import { config } from "dotenv";
 import { tagOptions } from "../../assets/endPoints";
+ import { ToastContainer, toast } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
 
 function UploadForm() {
   const navigate = useNavigate();
@@ -48,13 +50,20 @@ function UploadForm() {
       console.error(error);
     }
 
-      await axios.post( baseUrl+"\api\v1\meme\add", {
-        created_by: form.created_by,
-        meme_url: memeUrl,
-        tag: form.tag,
-      });
+    try {
+          console.log(baseUrl + "api\v1\meme\add")
+          await axios.post(baseUrl + "api\v1\meme\add", {
+            created_by: form.created_by,
+            meme_url: memeUrl,
+            tag: form.tag,
+          });
 
-      alert('Meme successfully uploaded! 👍')
+          //alert("Meme successfully uploaded! 👍");
+          toast('Meme uploaded! 👍')
+    } catch (error) {
+
+    }
+
      // console.log('meme successfully uploaded! 👍')
   };
 
@@ -99,6 +108,7 @@ function UploadForm() {
           </div>
         </section>
       </div>
+      <ToastContainer />
     </>
   );
 }
