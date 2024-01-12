@@ -12,7 +12,7 @@ function Model({handleClose, preview, endpoint, show, handlePreview}) {
       <Modal.Body>
         {endpoint.type === "meme" ? (
           <div className="text-center">
-            <img src={preview.url} className="img-fluid" />
+            <img src={preview?.url} className="img-fluid" />
           </div>
         ) : (
           <div className="text-center m-auto p-5">

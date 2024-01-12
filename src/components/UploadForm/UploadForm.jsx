@@ -12,9 +12,9 @@ import { tagOptions } from "../../assets/endPoints";
 function UploadForm() {
   const navigate = useNavigate();
 
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState();
   const [form, setForm] = useState({ created_by: "", tag: "" });
-  const [memeUrl, setMemeUrl] = useState("");
+  const [memeUrl, setMemeUrl] = useState();
 
 
 const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
