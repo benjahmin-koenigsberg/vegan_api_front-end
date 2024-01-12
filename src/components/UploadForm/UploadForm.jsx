@@ -58,7 +58,17 @@ console.log(UPLOAD_URL)
           });
 
           //alert("Meme successfully uploaded! 👍");
-          toast('Meme uploaded! 👍')
+
+          ttoast('Meme uploaded! 👍',  {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "success",
+          });
     } catch (error) {
 
     }

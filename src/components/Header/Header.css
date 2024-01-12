@@ -6,6 +6,8 @@ header {
     padding: 1.5rem 3rem .5rem 3rem;
     justify-content: space-between;
     color: white;
+    font-size: calc(60% + 1vmin);
+
 }
 
 .logo{
