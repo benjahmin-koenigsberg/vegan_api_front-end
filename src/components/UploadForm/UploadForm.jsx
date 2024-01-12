@@ -25,18 +25,16 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleImage = (e) => {
+  const handleImage = async (e) => {
     const image = e.target.files[0];
+
     setImage(image);
-    console.log(image);
-  };
 
-  const handleApi = async (e) => {
-    e.preventDefault();
+    //console.log(image);
 
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append("upload_preset", "vegan_meme_api");
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("upload_preset", "vegan_meme_api");
 
     try {
       const response = await axios.post(
@@ -44,13 +42,19 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
         formData
       );
       setMemeUrl(response.data.url);
-      console.log(response.data.url);
+      //console.log(response.data.url);
     } catch (error) {
       console.error(error);
     }
 
+
+  };
+
+  const handleApi = async (e) => {
+
+    e.preventDefault();
+
     try {
-console.log(UPLOAD_URL)
           await axios.post(UPLOAD_URL, {
             created_by: form.created_by,
             meme_url: memeUrl,
@@ -58,7 +62,6 @@ console.log(UPLOAD_URL)
           });
 
           //alert("Meme successfully uploaded! 👍");
-
           toast.success('Meme uploaded! 👍',  {
             position: "top-right",
             autoClose: 3000,
