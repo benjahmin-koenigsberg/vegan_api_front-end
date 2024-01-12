@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 
 function Hero() {
 
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
     const [numOfMemes, setNumOfMemes] = useState(null);
 
     useEffect(() => {
-      axios.get("http://localhost:8080/api/v1/all").then((res) => {
+      axios.get(`${baseUrl}/all`).then((res) => {
         setNumOfMemes(res.data.data.length);
       });
     }, []);

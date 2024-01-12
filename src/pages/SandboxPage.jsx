@@ -10,7 +10,12 @@ import {
   shadesOfPurple,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
+
 function SandboxPage() {
+
+
 
   const [form, setForm] = useState({
     type: "meme",
@@ -27,22 +32,22 @@ function SandboxPage() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/tags").then((res) =>
+    axios.get(`${baseUrl}/tags`).then((res) =>
       //console.log(res.data)
       setOptions({ ...options, tags: res.data.data })
     );
-    axios.get("http://localhost:8080/api/v1/quotes/authors").then((res) =>
+    axios.get(`${baseUrl}/quotes/authors`).then((res) =>
       //console.log(res.data)
       setOptions({ ...options, authors: res.data.data })
     );
-    axios.get("http://localhost:8080/api/v1/all").then((res) =>
+    axios.get(`${baseUrl}/all`).then((res) =>
       //console.log(res.data)
       setOptions({
         ...options,
         meme_ids: res.data.data.map((item) => item._id),
       })
     );
-    axios.get("http://localhost:8080/api/v1/quotes/all").then((res) =>
+    axios.get(`${baseUrl}/quotes/all`).then((res) =>
       //console.log(res.data)
       setOptions({
         ...options,

@@ -15,11 +15,11 @@ function UploadForm() {
   const [memeUrl, setMemeUrl] = useState("");
 
   //const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/benjahmin/image/upload";
-  const SERVER_URL = "http://localhost:8080/api/v1/add";
+ // const SERVER_URL = "http://localhost:8080/api/v1/add";
   // const CLOUDINARY_UPLOAD_PRESET = "vegan_meme_api";
 
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
-  //const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
   //const VITE_CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDNIARY_UPLOAD_PRESET;
   const baseUrl = import.meta.env.VITE_BASE_URL;
 
