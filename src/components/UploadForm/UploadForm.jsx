@@ -47,7 +47,7 @@ function UploadForm() {
       console.error(error);
     }
 
-      await axios.post(SERVER_URL, {
+      await axios.post( `${baseUrl}\api\v1\meme\add`, {
         created_by: form.created_by,
         meme_url: memeUrl,
         tag: form.tag,
