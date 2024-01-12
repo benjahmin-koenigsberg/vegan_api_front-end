@@ -16,8 +16,9 @@ function UploadForm() {
 
 
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
-  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+  //const SERVER_URL = import.meta.env.VITE_SERVER_URL;
   const baseUrl = import.meta.env.VITE_BASE_URL;
+
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -47,7 +48,7 @@ function UploadForm() {
       console.error(error);
     }
 
-      await axios.post( `${baseUrl}\api\v1\meme\add`, {
+      await axios.post( baseUrl+"\api\v1\meme\add", {
         created_by: form.created_by,
         meme_url: memeUrl,
         tag: form.tag,
