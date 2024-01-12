@@ -59,7 +59,7 @@ console.log(UPLOAD_URL)
 
           //alert("Meme successfully uploaded! 👍");
 
-          toast('Meme uploaded! 👍',  {
+          toast.success('Meme uploaded! 👍',  {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -67,7 +67,7 @@ console.log(UPLOAD_URL)
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "success",
+            theme: "dark",
           });
     } catch (error) {
 
