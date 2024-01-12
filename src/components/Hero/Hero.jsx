@@ -10,7 +10,7 @@ function Hero() {
     const [numOfMemes, setNumOfMemes] = useState(null);
 
     useEffect(() => {
-      axios.get(`${baseUrl}/all`).then((res) => {
+      axios.get(`${baseUrl}/api/v1/all`).then((res) => {
         setNumOfMemes(res.data.data.length);
       });
     }, []);
