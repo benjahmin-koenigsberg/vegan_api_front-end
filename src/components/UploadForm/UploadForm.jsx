@@ -59,7 +59,7 @@ console.log(UPLOAD_URL)
 
           //alert("Meme successfully uploaded! 👍");
 
-          ttoast('Meme uploaded! 👍',  {
+          toast('Meme uploaded! 👍',  {
             position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
