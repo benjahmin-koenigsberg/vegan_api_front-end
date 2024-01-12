@@ -2,7 +2,9 @@
 
 function Accordion() {
   return (
-    <div className="accordion accordion-flush lh-lg border rounded shadow" id="accordionFlushExample">
+    <div
+      className="accordion accordion-flush lh-lg border rounded shadow"
+      id="accordionFlushExample">
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingOne">
           <button
@@ -132,13 +134,14 @@ function Accordion() {
           className="accordion-collapse collapse"
           aria-labelledby="flush-headingFive"
           data-bs-parent="#accordionFlushExample">
-
-          <div className="accordion-body d-flex flex-column align-items-center justify-content-center gap-4">
-
-            <div className="d-flex">
+          <div className="accordion-body d-flex flex-column  align-items-center justify-content-center gap-4">
+            <div
+              className="text-center d-flex  justify-content-center align-items-center  flex-column"
+              id="profile">
               <img
+                style={{ height: "15rem" }}
                 src="https://benjahminkoenigsberg.com/images/my-avatar.png"
-                className="w-25"
+                className="m-2"
               />
               <div className=" px-4">
                 I’m a Full Stack Developer with a passion for problem-solving
@@ -153,15 +156,21 @@ function Accordion() {
                 success. I am always eager to learn new skills and technologies
                 while delivering solutions that exceed expectations.
               </div>
-
             </div>
 
-            <div className="d-flex justify-content-between w-75 mt-2">
-              <button>github 💻</button>
-              <button>portfolio 🌎</button>
-              <button>email 📧</button>
+            <div className="d-flex justify-content-center gap-5 mt-2">
+              <a
+                href="https://github.com/benjahmin-koenigsberg"
+                target="_blank">
+                <button>github 💻</button>
+              </a>
+              <a href="https://benjahminkoenigsberg.com/">
+                <button>portfolio 🌎</button>
+              </a>
+              <a href="mailto:benjahmin.lakin@gmail.com">
+                <button>email 📧</button>
+              </a>
             </div>
-
           </div>
         </div>
       </div>

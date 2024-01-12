@@ -61,7 +61,6 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
             tag: form.tag,
           });
 
-          //alert("Meme successfully uploaded! 👍");
           toast.success('Meme uploaded! 👍',  {
             position: "top-right",
             autoClose: 3000,
@@ -75,8 +74,6 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
     } catch (error) {
 
     }
-
-     // console.log('meme successfully uploaded! 👍')
   };
 
 
