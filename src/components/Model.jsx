@@ -5,19 +5,24 @@ import { Modal, Button } from "react-bootstrap";
 
 function Model({handleClose, preview, endpoint, show, handlePreview}) {
   return (
-    <Modal show={show} onHide={handleClose} fullscreen>
+    <Modal show={show} onHide={handleClose} >
       <Modal.Header closeButton>
         <Modal.Title></Modal.Title>
       </Modal.Header>
       <Modal.Body>
         {endpoint.type === "meme" ? (
-          <div className="text-center">
-            <img src={preview?.url} className="img-fluid" />
+          <div className="text-center d-flex justify-content-center align-items-center">
+            <img
+              src={preview?.url}
+              className="img-fluid"
+            />
           </div>
         ) : (
-          <div className="text-center m-auto p-5">
-            <blockquote className="display-6" style={{ fontFamily: "Josefin Sans" }}>
-              {preview.quote}
+          <div className="text-center m-auto p-5"
+          >
+            <blockquote
+              style={{ fontFamily: "Josefin Sans", fontSize: '1.5rem'}}>
+              " {preview.quote} "
             </blockquote>
             <p className="">- {preview.author}</p>
           </div>
