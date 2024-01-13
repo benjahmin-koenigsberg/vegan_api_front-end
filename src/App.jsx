@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import UploadPage from "./pages/UploadPage";
 import AboutPage from "./pages/AboutPage";
 import SandboxPage from "./pages/SandboxPage";
+import DonatePage from "./pages/DonatePage";
 
 function App() {
   return (
