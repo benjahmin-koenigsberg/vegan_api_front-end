@@ -13,12 +13,18 @@ import FormInput from "../components/FormInput";
 import { tagOptions, authorOptions, quoteIdsArr } from "../assets/endPoints";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
+let base = '';
 
 function SandboxPage() {
+
+  const [show, setShow] = useState(false)
+
+  const [code, setCode] = useState();
+
   const [form, setForm] = useState({
     type: "",
-    tag: "",
-    author: "",
+    tag: undefined,
+    author: undefined,
     id: "",
   });
 
@@ -40,13 +46,37 @@ function SandboxPage() {
     );
   }, []);
 
-  useEffect(() => {}, [form]);
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+
+
+    form.type === 'meme' ? base = `https://vegan-api-back-end.onrender.com/api/v1` : base = `https://vegan-api-back-end.onrender.com/api/v1/quotes`
+
+    form.type === 'meme' && form.tag !== undefined ?  base = `https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}` : base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
+
+
+    form.type === 'quote' && form.author !== undefined ?  base = `https://vegan-api-back-end.onrender.com/api/v1/qoutes/${form.author}` :  base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
+
+    // {
+    //   form.type === "meme" && form.tag
+    //     ? setCode({ ...code, mid :`/${form.tag}` })
+    //     : setCode({...code, mid :`/id/${form.id}` })
+    // }
+    //  {
+    //    form.type === "quote" && form.author
+    //      ? setCode({ ...code, mid: `/authors/${form.author}` })
+    //      : setCode({ ...code, mid: `/id/${form.id}` });
+    //  }
+    
+  const handleShow = (e) => {
+    e.preventDefault();
+    setCode(base);
+    setShow((prev) => !prev);
+  };
+
 
   return (
     <>
@@ -95,7 +125,7 @@ function SandboxPage() {
                   ""
                 )}
 
-                {form.author === "" && form.type === 'quote' ? (
+                {form.author === "" && form.type === "quote" ? (
                   <FormInput
                     name={"id"}
                     value={form.id}
@@ -107,25 +137,29 @@ function SandboxPage() {
                   ""
                 )}
 
-                <button>Get code</button>
+                <button onClick={handleShow} >Get code</button>
               </form>
             </div>
           </div>
         </section>
         <div id="code-box" className=" my-4 m-auto w-50 ">
-          <SyntaxHighlighter
-            lineProps={{
-              style: {
-                wordBreak: "break-all",
-                whiteSpace: "pre-wrap",
-                textAlign: "center",
-              },
-            }}
-            wrapLines={true}
-            language="javascript"
-            style={dark}>
-            {`${baseUrl}/api/v1/${form.author ? 'auhthors' : 'quotes'}/${form.author === '' ? form.id : form.author}`}
-          </SyntaxHighlighter>
+          { show ? (
+            <SyntaxHighlighter
+              lineProps={{
+                style: {
+                  wordBreak: "break-all",
+                  whiteSpace: "pre-wrap",
+                  textAlign: "center",
+                },
+              }}
+              wrapLines={true}
+              language="javascript"
+              style={dark}>
+                 {code}
+            </SyntaxHighlighter>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>
