@@ -9,6 +9,7 @@ import {
   vsDark,
   shadesOfPurple,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import FormInput from "../components/FormInput";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -18,7 +19,7 @@ function SandboxPage() {
 
 
   const [form, setForm] = useState({
-    type: "meme",
+    type: "",
     tag: "",
     author: "",
     id: "",
@@ -32,29 +33,29 @@ function SandboxPage() {
   });
 
   useEffect(() => {
-    axios.get(`${baseUrl}/tags`).then((res) =>
-      //console.log(res.data)
+
+    axios.get(`${baseUrl}/api/v1/tags`).then((res) =>
       setOptions({ ...options, tags: res.data.data })
     );
-    axios.get(`${baseUrl}/quotes/authors`).then((res) =>
+    axios.get(`${baseUrl}/api/v1/quotes/authors`).then((res) =>
       //console.log(res.data)
       setOptions({ ...options, authors: res.data.data })
     );
-    axios.get(`${baseUrl}/all`).then((res) =>
+    axios.get(`${baseUrl}/api/v1/all`).then((res) =>
       //console.log(res.data)
       setOptions({
         ...options,
         meme_ids: res.data.data.map((item) => item._id),
       })
     );
-    axios.get(`${baseUrl}/quotes/all`).then((res) =>
+    axios.get(`${baseUrl}/api/v1/quotes/all`).then((res) =>
       //console.log(res.data)
       setOptions({
         ...options,
-        quotes_ids: res.data.data.map((item, index) => index),
+        quotes_ids: res.data.data.map( (index , item ) => item[index] ),
       })
     );
-  });
+  } , [] );
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -79,73 +80,60 @@ function SandboxPage() {
                   </select>
                 </div>
 
-                {form.type === "meme" ? (
-                  <div className="label-input-div">
-                    <label>Select a Tag </label>
-                    <select name="tag" value={form.tag} onChange={handleForm}>
-                      <option></option>
-                      {options.tags.map((tag) => (
-                        <option value={tag}>{tag}</option>
-                      ))}
-                    </select>
-                  </div>
-                ) : (
-                  <div className="label-input-div">
-                    <label>Select Author </label>
-                    <select name="tag" value={form.tag} onChange={handleForm}>
-                      <option> </option>
-                      {options.authors.map((author) => (
-                        <option value={author}>{author}</option>
-                      ))}
-                    </select>
-                  </div>
-                )}
+                  <FormInput
+                    value={form.tag}
+                    form={form}
 
-                {form.type === "meme" ? (
-                  <div className="label-input-div">
-                    <label>Id</label>
-                    <select
-                      name="id"
-                      value={form.id}
-                      onChange={form.tag || form.author ? "" : handleForm}>
-                      <option disabled></option>
-                      {options.meme_ids.map((id) => (
-                        <option value={id}>{id}</option>
-                      ))}
-                    </select>
-                  </div>
-                ) : (
-                  <div className="label-input-div">
-                    <label>Id</label>
-                    <select
-                      name="id"
-                      value={form.id}
-                      onChange={form.tag || form.author ? "" : handleForm}>
-                      <option disabled></option>
-                      {options.quotes_ids.map((id) => (
-                        <option value={id}>{id}</option>
-                      ))}
-                    </select>
-                  </div>
-                )}
+                    optionsArray={options.tags}
+                    handleForm={handleForm}
+                  />
+                  <FormInput
+                    value={form.author}
+                    form={form}
+
+                    optionsArray={options.authors}
+                    handleForm={handleForm}
+                  />
+
+                  <FormInput
+                    value={form.id}
+                    form={form}
+
+                    optionsArray={options.meme_ids}
+                    handleForm={handleForm}
+                  />
+
+                  <FormInput
+                    value={form.id}
+                    form={form}
+
+                    optionsArray={options.quotes_ids}
+                    handleForm={handleForm}
+                  />
+
+
                 {/* <button >Get Url</button> */}
               </form>
             </div>
           </div>
         </section>
-        <div
-        id="code-box"
-          className=" my-4 m-auto w-50 ">
+        {/* <div id="code-box" className=" my-4 m-auto w-50 ">
           <SyntaxHighlighter
             lineProps={{
-              style: { wordBreak: "break-all", whiteSpace: "pre-wrap", textAlign: 'center' },
+              style: {
+                wordBreak: "break-all",
+                whiteSpace: "pre-wrap",
+                textAlign: "center",
+              },
             }}
             wrapLines={true}
             language="javascript"
             style={dark}>
-            {`${baseUrl}/${form.type}/authors/${form.author || form.tag}/${form.id}`}
+            {`${baseUrl}/${form.type}/authors/${form.author || form.tag}/${
+              form.id
+            }`}
           </SyntaxHighlighter>
-        </div>
+        </div> */}
       </div>
     </>
   );
