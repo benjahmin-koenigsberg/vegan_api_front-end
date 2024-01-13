@@ -71,7 +71,7 @@ const endpoints = [
     btnText: 'JSON'
   },
   {
-    description: "Get a JSON of a  meme by ID / sample Id ⬇️ " ,
+    description: "Get a JSON of a meme by Id (sample) " ,
     url: `${baseUrl}/api/v1/id/65a0753d5c63837f516f793f`,
     response: '',
     type: 'meme',

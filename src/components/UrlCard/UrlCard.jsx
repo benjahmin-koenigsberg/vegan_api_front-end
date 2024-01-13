@@ -44,7 +44,8 @@ useEffect(()=>{
   return (
     <>
       <p className="m-0 font-monospace">{endpoint.description} </p>
-      <table className="table bg-light border rounded shadow d-flex justify-content-between align-items-center px-2">
+      <table className="table bg-light border rounded shadow d-flex justify-content-between align-items-center px-2"
+      style={{ fontSize: 'calc(50% + 1vmin)' }}>
           <tr className="">
             <th scope="col" className="table-text">
               {endpoint.url}
@@ -65,7 +66,7 @@ useEffect(()=>{
                 </button>
               ) : (
                 <a href={endpoint.url} target="_blank" >
-                  <button className="m-auto"> {endpoint.btnText}</button>
+                  <button type="button" className="btn btn-success m-auto"> {endpoint.btnText}</button>
                 </a>
               )}
             </th>
