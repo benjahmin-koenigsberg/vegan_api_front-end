@@ -297,4 +297,7 @@ const quoteIds =
   "Waka Flocka Flame",
   ]
 
-export { endpoints, tagOptions, authorOptions, quoteIds }
+const quoteIdsArr = []
+quoteIds.forEach((item, index) => quoteIdsArr.push(index))
+
+export { endpoints, tagOptions, authorOptions, quoteIdsArr }
