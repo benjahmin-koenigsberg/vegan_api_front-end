@@ -23,8 +23,8 @@ function SandboxPage() {
 
   const [form, setForm] = useState({
     type: "",
-    tag: undefined,
-    author: undefined,
+    tag: "",
+    author: '',
     id: "",
   });
 
@@ -49,17 +49,31 @@ function SandboxPage() {
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setCode(base);
+
   };
 
 
+if(form.type === 'meme'){
+  base = `https://vegan-api-back-end.onrender.com/api/v1`;
+} else {
+  base = `https://vegan-api-back-end.onrender.com/api/v1/quotes`;
 
-    form.type === 'meme' ? base = `https://vegan-api-back-end.onrender.com/api/v1` : base = `https://vegan-api-back-end.onrender.com/api/v1/quotes`
+}
+    // form.type === 'meme' ? base = `https://vegan-api-back-end.onrender.com/api/v1` : base = `https://vegan-api-back-end.onrender.com/api/v1/quotes`
+if (form.tag){
+  base = `https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}`
+} else {
+`https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`;
+}
+    // form.tag !== '' ? base = `https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}` : base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
 
-    form.type === 'meme' && form.tag !== undefined ?  base = `https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}` : base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
-
-
-    form.type === 'quote' && form.author !== undefined ?  base = `https://vegan-api-back-end.onrender.com/api/v1/qoutes/${form.author}` :  base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
-
+    // form.author !== '' ? base = `https://vegan-api-back-end.onrender.com/api/v1/qoutes/${form.author}` :  base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
+if(form.author){
+  base = `https://vegan-api-back-end.onrender.com/api/v1/qoutes/${form.author}`;
+} else {
+   base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`;
+}
     // {
     //   form.type === "meme" && form.tag
     //     ? setCode({ ...code, mid :`/${form.tag}` })
@@ -70,11 +84,12 @@ function SandboxPage() {
     //      ? setCode({ ...code, mid: `/authors/${form.author}` })
     //      : setCode({ ...code, mid: `/id/${form.id}` });
     //  }
-    
+
   const handleShow = (e) => {
     e.preventDefault();
-    setCode(base);
+     setCode(()=>base);
     setShow((prev) => !prev);
+
   };
 
 
@@ -158,7 +173,7 @@ function SandboxPage() {
                  {code}
             </SyntaxHighlighter>
           ) : (
-            ""
+            ''
           )}
         </div>
       </div>
