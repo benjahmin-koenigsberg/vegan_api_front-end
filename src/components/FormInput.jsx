@@ -1,11 +1,11 @@
-function FormInput({form, optionsArray, handleForm, value}) {
+function FormInput({ optionsArray, handleForm, value, label, name}) {
   return (
     <div className="label-input-div">
-      <label>Select a Tag </label>
-      <select name={value} value={value} onChange={handleForm}>
+      <label>Select a {label} </label>
+      <select name={name} value={value} onChange={handleForm}>
         <option></option>
         {optionsArray.map((option) => (
-          <option value={value}>{option}</option>
+          <option value={option}>{option}</option>
         ))}
       </select>
     </div>

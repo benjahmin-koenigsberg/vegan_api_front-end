@@ -10,13 +10,15 @@ import {
   shadesOfPurple,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import FormInput from "../components/FormInput";
+import { tagOptions, authorOptions, quoteIds } from "../assets/endPoints";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
+const quoteIdsArr = []
+quoteIds.forEach((item, index)=>quoteIdsArr.push(index))
+
 
 function SandboxPage() {
-
-
 
   const [form, setForm] = useState({
     type: "",
@@ -26,35 +28,23 @@ function SandboxPage() {
   });
 
   const [options, setOptions] = useState({
-    tags: [],
-    authors: [],
+    tags: tagOptions,
+    authors: authorOptions,
     meme_ids: [],
-    quotes_ids: [],
+    quotes_ids: quoteIdsArr
   });
 
-  useEffect(() => {
 
-    axios.get(`${baseUrl}/api/v1/tags`).then((res) =>
-      setOptions({ ...options, tags: res.data.data })
-    );
-    axios.get(`${baseUrl}/api/v1/quotes/authors`).then((res) =>
-      //console.log(res.data)
-      setOptions({ ...options, authors: res.data.data })
-    );
-    axios.get(`${baseUrl}/api/v1/all`).then((res) =>
-      //console.log(res.data)
-      setOptions({
-        ...options,
-        meme_ids: res.data.data.map((item) => item._id),
-      })
-    );
-    axios.get(`${baseUrl}/api/v1/quotes/all`).then((res) =>
-      //console.log(res.data)
-      setOptions({
-        ...options,
-        quotes_ids: res.data.data.map( (index , item ) => item[index] ),
-      })
-    );
+
+useEffect( () => {
+
+      axios.get(`${baseUrl}/api/v1/all`).then((res) =>
+        setOptions({
+          ...options,
+          meme_ids: res.data.data.map((item) => item._id),
+        })
+      );
+
   } , [] );
 
   const handleForm = (e) => {
@@ -72,45 +62,45 @@ function SandboxPage() {
           <div className="main-container">
             <div className="">
               <form className="py-4">
-                <div className="label-input-div">
+                <FormInput  label={'type of content'} name={'type'} value={form.type} optionsArray={['memes', 'quotes']} handleForm={handleForm} />
+                {/* <div className="label-input-div">
                   <label htmlFor="file">Select type of content</label>
                   <select name="type" value={form.type} onChange={handleForm}>
                     <option value="memes">Memes</option>
                     <option value="quotes">Quote</option>
                   </select>
-                </div>
+                </div> */}
 
-                  <FormInput
-                    value={form.tag}
-                    form={form}
+                <FormInput
+                  name={"tag"}
+                  value={form.tag}
+                  label={"Tag"}
+                  optionsArray={options.tags}
+                  handleForm={handleForm}
+                />
+                <FormInput
+                  name={"author"}
+                  value={form.author}
+                  label={"Author"}
+                  optionsArray={options.authors}
+                  handleForm={handleForm}
+                />
 
-                    optionsArray={options.tags}
-                    handleForm={handleForm}
-                  />
-                  <FormInput
-                    value={form.author}
-                    form={form}
+                <FormInput
+                  name={"id"}
+                  value={form.id}
+                  label={"Id"}
+                  optionsArray={options.meme_ids}
+                  handleForm={handleForm}
+                />
 
-                    optionsArray={options.authors}
-                    handleForm={handleForm}
-                  />
-
-                  <FormInput
-                    value={form.id}
-                    form={form}
-
-                    optionsArray={options.meme_ids}
-                    handleForm={handleForm}
-                  />
-
-                  <FormInput
-                    value={form.id}
-                    form={form}
-
-                    optionsArray={options.quotes_ids}
-                    handleForm={handleForm}
-                  />
-
+                <FormInput
+                  name={"id"}
+                  value={form.id}
+                  label={"Id"}
+                  optionsArray={options.quotes_ids}
+                  handleForm={handleForm}
+                />
 
                 {/* <button >Get Url</button> */}
               </form>
