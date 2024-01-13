@@ -14,7 +14,7 @@ function UploadForm() {
 
   const [image, setImage] = useState();
   const [form, setForm] = useState({ created_by: "", tag: "" });
-  const [memeUrl, setMemeUrl] = useState();
+  const [memeInfo, setMemeInfo] = useState({memeUrl: '', file_name: ''});
 
 
 const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
@@ -41,7 +41,11 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
         CLOUDINARY_URL,
         formData
       );
-      setMemeUrl(response.data.url);
+      setMemeInfo({
+        ...memeInfo,
+        memeUrl: response.data.url,
+        file_name: response.original_filename,
+      });
       //console.log(response.data.url);
     } catch (error) {
       console.error(error);
@@ -57,7 +61,8 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
     try {
           await axios.post(UPLOAD_URL, {
             created_by: form.created_by,
-            meme_url: memeUrl,
+            meme_url: memeInfo.memeUrl,
+            file_name: memeInfo.file_name,
             tag: form.tag,
           });
 

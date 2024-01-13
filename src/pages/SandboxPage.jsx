@@ -29,6 +29,8 @@ function SandboxPage() {
     quotes_ids: quoteIdsArr,
   });
 
+
+
   useEffect(() => {
     axios.get(`${baseUrl}/api/v1/all`).then((res) =>
       setOptions({
@@ -122,7 +124,7 @@ function SandboxPage() {
             wrapLines={true}
             language="javascript"
             style={dark}>
-            {`${baseUrl}/api/v1/${form.type === 'meme' ? '' : 'authors'}${form.id ? 'id' : ''}/${form.author === '' ? form.id : form.author}`}
+            {`${baseUrl}/api/v1/${form.author ? 'auhthors' : 'quotes'}/${form.author === '' ? form.id : form.author}`}
           </SyntaxHighlighter>
         </div>
       </div>
