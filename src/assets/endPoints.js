@@ -2,7 +2,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL
 
 const endpoints = [
   {
-    description: "Get a random meme",
+    description: "Preview a random meme",
     url: `${baseUrl}/api/v1/random/prev`,
     response: '',
     type: 'meme',
@@ -10,7 +10,7 @@ const endpoints = [
     btnText: 'Try me'
   },
   {
-    description: "Get random quote",
+    description: "Preivew a random quote",
     url: `${baseUrl}/api/v1/quotes/random`,
     response: '',
     type: 'quote',
@@ -18,7 +18,7 @@ const endpoints = [
     btnText: 'Try me'
   },
   {
-    description: "Get all memes",
+    description: "Get a JSON of all the memes",
     url: `${baseUrl}/api/v1/all`,
     response: '',
     type: 'meme',
@@ -27,7 +27,7 @@ const endpoints = [
   },
 
   {
-    description: "Get a random meme",
+    description: "Get a JSON of a random meme",
     url: `${baseUrl}/api/v1/random`,
     response: '',
     type: 'meme',
@@ -36,7 +36,7 @@ const endpoints = [
 
   },
   {
-    description: "Get all quotes",
+    description: "Get a JSON of all the quotes",
     url: `${baseUrl}/api/v1/quotes/all`,
     response: '',
     type: 'quote',
@@ -45,7 +45,7 @@ const endpoints = [
   },
 
   {
-    description: "Get a random quote",
+    description: "Get a JSON of a random quote",
     url: `${baseUrl}/api/v1/quotes/random`,
     response: '',
     type: 'quote',
@@ -54,7 +54,7 @@ const endpoints = [
 
   },
   {
-    description: "Get all meme tags",
+    description: "Get a JSON of all the meme tags",
     url: `${baseUrl}/api/v1/tags`,
     response: '',
     type: 'meme',
@@ -63,7 +63,7 @@ const endpoints = [
 
   },
   {
-    description: "Get all quote authors",
+    description: "Get a JSON of all the quote authors",
     url: `${baseUrl}/api/v1/quotes/authors`,
     response: '',
     type: 'quote',
@@ -71,7 +71,7 @@ const endpoints = [
     btnText: 'JSON'
   },
   {
-    description: "Get meme by ID",
+    description: "Get a JSON of a  meme by ID / sample Id ⬇️ " ,
     url: `${baseUrl}/api/v1/id/65a0753d5c63837f516f793f`,
     response: '',
     type: 'meme',

@@ -43,18 +43,16 @@ useEffect(()=>{
 
   return (
     <>
-      <table className="table bg-light border rounded shadow">
-        <thead className="">
-          <tr>
-            <th scope="col " className="table-text">
+      <p className="m-0 font-monospace">{endpoint.description} </p>
+      <table className="table bg-light border rounded shadow d-flex justify-content-between align-items-center px-2">
+          <tr className="">
+            <th scope="col" className="table-text">
               {endpoint.url}
             </th>
           </tr>
-        </thead>
         <tbody>
           <tr>
             <th scope="row" className="table-text">
-
               {endpoint.href === "preview" ? (
                 <button
                   onClick={() => {
@@ -62,15 +60,14 @@ useEffect(()=>{
                     handleShow();
                   }}
                   type="button"
-                  class="btn btn-primary">
+                  class="btn btn-primary m-auto">
                   {endpoint.btnText}
                 </button>
               ) : (
-                <a href={endpoint.url} target="_blank">
-                  <button> {endpoint.btnText}</button>
+                <a href={endpoint.url} target="_blank" >
+                  <button className="m-auto"> {endpoint.btnText}</button>
                 </a>
               )}
-
             </th>
           </tr>
         </tbody>
