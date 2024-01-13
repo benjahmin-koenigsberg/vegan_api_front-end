@@ -18,7 +18,7 @@ function UploadForm() {
 
 
 const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:8080'
 const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
 
   const handleForm = (e) => {
@@ -42,9 +42,8 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
         formData
       );
       setMemeInfo({
-        ...memeInfo,
         memeUrl: response.data.url,
-        file_name: response.original_filename,
+        file_name: response.data.original_filename,
       });
       //console.log(response.data.url);
     } catch (error) {
