@@ -38,7 +38,7 @@ function SandboxPage() {
     );
   }, []);
 
-  useEffect(()=>{},[form])
+  useEffect(() => {}, [form]);
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -80,7 +80,8 @@ function SandboxPage() {
                     handleForm={handleForm}
                   />
                 )}
-                { form.type === "meme" ? (
+
+                {form.tag === "" && form.type === "meme" ? (
                   <FormInput
                     name={"id"}
                     value={form.id}
@@ -89,6 +90,10 @@ function SandboxPage() {
                     handleForm={handleForm}
                   />
                 ) : (
+                  ""
+                )}
+
+                {form.author === "" && form.type === 'quote' ? (
                   <FormInput
                     name={"id"}
                     value={form.id}
@@ -96,14 +101,16 @@ function SandboxPage() {
                     optionsArray={options.quotes_ids}
                     handleForm={handleForm}
                   />
+                ) : (
+                  ""
                 )}
 
-                <button >Get code</button>
+                <button>Get code</button>
               </form>
             </div>
           </div>
         </section>
-        {/* <div id="code-box" className=" my-4 m-auto w-50 ">
+        <div id="code-box" className=" my-4 m-auto w-50 ">
           <SyntaxHighlighter
             lineProps={{
               style: {
@@ -115,13 +122,16 @@ function SandboxPage() {
             wrapLines={true}
             language="javascript"
             style={dark}>
-            {`${baseUrl}/${form.type}/authors/${form.author || form.tag}/${
-              form.id
-            }`}
+            {`${baseUrl}/api/v1/${form.type === 'meme' ? '' : 'authors'}${form.id ? 'id' : ''}/${form.author === '' ? form.id : form.author}`}
           </SyntaxHighlighter>
-        </div> */}
+        </div>
       </div>
     </>
   );
 }
 export default SandboxPage;
+
+//memes
+//base url
+//quotes
+//baseurl/quotes/
