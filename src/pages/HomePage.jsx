@@ -6,7 +6,6 @@ import { endpoints } from "../assets/endPoints";
 import UrlCard from "../components/UrlCard/UrlCard";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import veganMemeSchema from "../../../back_end/mongoDb/models/veganMeme";
 import AccordionJsonItem from "../components/AccordionJsonItem/AccordionJsonItem";
 
 
