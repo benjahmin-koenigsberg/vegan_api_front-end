@@ -6,9 +6,9 @@ function Accordion() {
       className="accordion accordion-flush lh-lg border rounded shadow"
       id="accordionFlushExample">
       <div className="accordion-item">
-        <h2 className="accordion-header" id="flush-headingOne">
+        <h2 className="accordion-header " id="flush-headingOne">
           <button
-            className="accordion-button collapsed"
+            className="accordion-button collapsed mt-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#flush-collapseOne"
@@ -32,7 +32,7 @@ function Accordion() {
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingTwo">
           <button
-            className="accordion-button collapsed"
+            className="accordion-button collapsed mt-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#flush-collapseJson"
@@ -62,7 +62,7 @@ function Accordion() {
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingThree">
           <button
-            className="accordion-button collapsed"
+            className="accordion-button collapsed mt-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#flush-collapseThree"
@@ -87,7 +87,7 @@ function Accordion() {
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingFour">
           <button
-            className="accordion-button collapsed"
+            className="accordion-button collapsed mt-0"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#flush-collapseFour"
@@ -120,7 +120,7 @@ function Accordion() {
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingFive">
           <button
-            className="accordion-button collapsed"
+            className="accordion-button collapsed mt-0  "
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#flush-collapseFive"
@@ -158,17 +158,17 @@ function Accordion() {
               </div>
             </div>
 
-            <div className="d-flex justify-content-center gap-5 mt-2">
+            <div className="d-flex flex-row gap-5  mt-2">
               <a
                 href="https://github.com/benjahmin-koenigsberg"
                 target="_blank">
-                <button>github 💻</button>
+                <button className="btn-sm">github 💻</button>
               </a>
               <a href="https://benjahminkoenigsberg.com/">
-                <button>portfolio 🌎</button>
+                <button className="btn-sm">portfolio 🌎</button>
               </a>
               <a href="mailto:benjahmin.lakin@gmail.com">
-                <button>email 📧</button>
+                <button className="btn-sm">email 📧</button>
               </a>
             </div>
           </div>

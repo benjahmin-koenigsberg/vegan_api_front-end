@@ -13,12 +13,14 @@ import DonatePage from "./pages/DonatePage";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/upload" element={<UploadPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/sandbox" element={<SandboxPage />} />
-      </Routes>
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/sandbox" element={<SandboxPage />} />
+        </Routes>
+     
     </BrowserRouter>
   );
 }

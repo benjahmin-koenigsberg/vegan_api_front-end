@@ -1,13 +1,11 @@
-/** @format */
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UploadForm.css";
 import axios from "axios";
 import { config } from "dotenv";
 import { tagOptions } from "../../assets/endPoints";
- import { ToastContainer, toast } from "react-toastify";
- import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UploadForm() {
   const navigate = useNavigate();
@@ -54,6 +52,11 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
   };
 
   const handleApi = async (e) => {
+
+    if (!image || !form.memeUrl){
+      toast.error('Please upload a meme before submitting')
+      return;
+    }
 
     e.preventDefault();
 
