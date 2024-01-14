@@ -1,6 +1,3 @@
-/** @format */
-
-
 import "./AccordionUrlItem.css";
 import { useState } from "react";
 import axios from "axios";
