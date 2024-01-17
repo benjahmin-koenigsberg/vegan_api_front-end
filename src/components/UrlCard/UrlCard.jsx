@@ -14,16 +14,7 @@ function UrlCard({ endpoint }) {
   const handleShow = () => setShow(true);
 
 
-useEffect(()=>{
 
-
-  // if(endpoint.type === 'meme'){
-  //   handlePreview()
-  // } else {
-  //   return
-  // }
-
-}, [])
 
   const handlePreview = async () => {
     await axios

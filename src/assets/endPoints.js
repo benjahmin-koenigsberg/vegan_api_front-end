@@ -1,4 +1,4 @@
-const baseUrl = import.meta.env.VITE_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:8080';
 
 const endpoints = [
   {

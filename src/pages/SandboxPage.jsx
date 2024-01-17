@@ -12,7 +12,7 @@ import {
 import FormInput from "../components/FormInput";
 import { tagOptions, authorOptions, quoteIdsArr } from "../assets/endPoints";
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
 let base = '';
 
 function SandboxPage() {
@@ -182,7 +182,4 @@ if(form.author){
 }
 export default SandboxPage;
 
-//memes
-//base url
-//quotes
-//baseurl/quotes/
+

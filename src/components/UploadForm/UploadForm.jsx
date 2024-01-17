@@ -12,12 +12,12 @@ function UploadForm() {
 
   const [image, setImage] = useState();
   const [form, setForm] = useState({ created_by: "", tag: "" });
-  const [memeInfo, setMemeInfo] = useState({memeUrl: '', file_name: ''});
+  const [memeInfo, setMemeInfo] = useState({memeUrl: '', file_name: '',  asset_id: '',  width: "", height: '', });
 
 
 const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
 const baseUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:8080'
-const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
+const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api/v1/meme/add";
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -42,6 +42,10 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
       setMemeInfo({
         memeUrl: response.data.url,
         file_name: response.data.original_filename,
+        width: response.data.width,
+        height: response.data.height,
+        type: response.data.type,
+        asset_id: response.data.asset_id,
       });
       //console.log(response.data.url);
     } catch (error) {
@@ -53,7 +57,7 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
 
   const handleApi = async (e) => {
 
-    if (!image || !form.memeUrl){
+    if (form.memeUrl === '' ){
       toast.error('Please upload a meme before submitting')
       return;
     }
@@ -66,6 +70,11 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL;
             meme_url: memeInfo.memeUrl,
             file_name: memeInfo.file_name,
             tag: form.tag,
+            height: memeInfo.height,
+            width: memeInfo.width,
+            asset_id: memeInfo.asset_id,
+            type: memeInfo.type
+
           });
 
           toast.success('Meme uploaded! 👍',  {

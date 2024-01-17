@@ -4,8 +4,6 @@ import Hero from "../components/Hero/Hero";
 import Donate from "../components/Donate/Donate";
 import { endpoints } from "../assets/endPoints";
 import UrlCard from "../components/UrlCard/UrlCard";
-// import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import AccordionJsonItem from "../components/AccordionJsonItem/AccordionJsonItem";
 
 

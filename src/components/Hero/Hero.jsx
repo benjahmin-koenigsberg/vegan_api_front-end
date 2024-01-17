@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Hero() {
 
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:8080'
 
     const [numOfMemes, setNumOfMemes] = useState(null);
 
