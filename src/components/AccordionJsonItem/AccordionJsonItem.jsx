@@ -33,7 +33,7 @@ function AccordionJsonItem() {
         </h2>
         <div
           id="collapseOne"
-          class="accordion-collapse collapse show"
+          class="accordion-collapse collapsed show"
           aria-labelledby="headingOne"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">

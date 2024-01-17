@@ -59,6 +59,65 @@ function Accordion() {
           </div>
         </div>
       </div>
+
+      <div className="accordion-item">
+        <h2 className="accordion-header" id="flush-headingSix">
+          <button
+            className="accordion-button collapsed mt-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSix"
+            aria-expanded="false"
+            aria-controls="flush-collapseSix">
+            Why vegan?
+          </button>
+        </h2>
+        <div
+          id="flush-collapseSix"
+          className="accordion-collapse collapse"
+          aria-labelledby="flush-headingSix"
+          data-bs-parent="#accordionFlushExample">
+          <div className="accordion-body">
+            <strong className="fw-bold h2">
+              1,758 animals die for food in the United States every second!!
+            </strong>
+            <br></br>
+            <br></br>
+            Billions of intelligent animals, capable of feeling fear and pain,
+            suffer in the dark without sympathy or compassion at a scale that is
+            hard to imagine.<br></br> <br></br>While there is no reason to
+            assume non-human animals don’t feel pain, the scientific community
+            has explored and debunked the myth many times over. Cows, chickens,
+            and many crustaceans and fish feel pain.
+            <br></br>
+            <br></br>
+            <quoteblock>
+              "Veganism is a philosophy and way of living which seeks to
+              exclude—as far as is possible and practicable—all forms of
+              exploitation of, and cruelty to, animals for food, clothing or any
+              other purpose; and by extension, promotes the development and use
+              of animal-free alternatives for the benefit of animals, humans and
+              the environment. In dietary terms it denotes the practice of
+              dispensing with all products derived wholly or partly from
+              animals."
+            </quoteblock>
+            <div className="text-center">
+              <h5>
+                Dominion (2018): Official Trailer - "We Will Rise Together"
+              </h5>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/LpDJlEQsDoA?si=FPsBbq56_zttnp09"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingThree">
           <button
@@ -84,6 +143,7 @@ function Accordion() {
           </div>
         </div>
       </div>
+
       <div className="accordion-item">
         <h2 className="accordion-header" id="flush-headingFour">
           <button
