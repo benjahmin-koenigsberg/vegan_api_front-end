@@ -5,12 +5,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import {
-  vsDark,
-  shadesOfPurple,
-} from "react-syntax-highlighter/dist/cjs/styles/prism";
 import FormInput from "../components/FormInput";
 import { tagOptions, authorOptions, quoteIdsArr } from "../assets/endPoints";
+import { ToastContainer, toast } from "react-toastify";
 
 const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
 let base = '';
@@ -19,7 +16,7 @@ function SandboxPage() {
 
   const [show, setShow] = useState(false)
 
-  const [code, setCode] = useState();
+  const [code, setCode] = useState('');
 
   const [form, setForm] = useState({
     type: "",
@@ -46,51 +43,66 @@ function SandboxPage() {
     );
   }, []);
 
+  useEffect(()=>{
+
+if (form.type === "meme") {
+  base = `https://vegan-api-back-end.onrender.com/api/v1`;
+  setCode(`https://vegan-api-back-end.onrender.com/api/v1`);
+
+  if (form.tag) {
+    base = `https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}`;
+    setCode(`https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}`);
+  } else {
+    `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`;
+    setCode(`https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`);
+  }
+} else {
+  base = `https://vegan-api-back-end.onrender.com/api/v1/quotes`;
+  setCode(`https://vegan-api-back-end.onrender.com/api/v1/quotes`);
+
+  if (form.author) {
+    base = `https://vegan-api-back-end.onrender.com/api/v1/quotes/${form.author}`;
+    setCode(
+      `https://vegan-api-back-end.onrender.com/api/v1/quotes/${form.author}`
+    );
+  } else {
+    base = `https://vegan-api-back-end.onrender.com/api/v1/quotes/id/${form.id}`;
+    setCode(
+      `https://vegan-api-back-end.onrender.com/api/v1/quotes/id/${form.id}`
+    );
+  }
+}
+
+  },[form])
+
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setCode(base);
-
+    //setCode(base);
   };
 
 
-if(form.type === 'meme'){
-  base = `https://vegan-api-back-end.onrender.com/api/v1`;
-} else {
-  base = `https://vegan-api-back-end.onrender.com/api/v1/quotes`;
-
-}
-    // form.type === 'meme' ? base = `https://vegan-api-back-end.onrender.com/api/v1` : base = `https://vegan-api-back-end.onrender.com/api/v1/quotes`
-if (form.tag){
-  base = `https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}`
-} else {
-`https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`;
-}
-    // form.tag !== '' ? base = `https://vegan-api-back-end.onrender.com/api/v1/tags/${form.tag}` : base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
-
-    // form.author !== '' ? base = `https://vegan-api-back-end.onrender.com/api/v1/qoutes/${form.author}` :  base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`
-if(form.author){
-  base = `https://vegan-api-back-end.onrender.com/api/v1/qoutes/${form.author}`;
-} else {
-   base = `https://vegan-api-back-end.onrender.com/api/v1/id/${form.id}`;
-}
-    // {
-    //   form.type === "meme" && form.tag
-    //     ? setCode({ ...code, mid :`/${form.tag}` })
-    //     : setCode({...code, mid :`/id/${form.id}` })
-    // }
-    //  {
-    //    form.type === "quote" && form.author
-    //      ? setCode({ ...code, mid: `/authors/${form.author}` })
-    //      : setCode({ ...code, mid: `/id/${form.id}` });
-    //  }
 
   const handleShow = (e) => {
     e.preventDefault();
-     setCode(()=>base);
+    // setCode(base);
     setShow((prev) => !prev);
 
   };
+
+  const copyToClip = () => {
+  navigator.clipboard.writeText(code);
+    toast.info("url copied to clipboard 📋!", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
 
 
   return (
@@ -152,34 +164,47 @@ if(form.author){
                   ""
                 )}
 
-                <button onClick={handleShow} >Get code</button>
+                <button onClick={handleShow}>Get code</button>
               </form>
             </div>
           </div>
         </section>
-        <div id="code-box" className=" my-4 m-auto w-50 ">
-          { show ? (
-            <SyntaxHighlighter
-              lineProps={{
-                style: {
-                  wordBreak: "break-all",
-                  whiteSpace: "pre-wrap",
-                  textAlign: "center",
-                },
-              }}
-              wrapLines={true}
-              language="javascript"
-              style={dark}>
-                 {code}
-            </SyntaxHighlighter>
+        <div id="code-box" className="m-auto my-4 w-75  ">
+          {show ? (
+            <div className="d-flex align-items-center gap-2 justify-content-center">
+              <SyntaxHighlighter
+                lineProps={{
+                  style: {
+                    wordBreak: "break-all",
+                    whiteSpace: "pre-wrap",
+                    textAlign: "center",
+                  },
+                }}
+                wrapLines={true}
+                language="javascript"
+                style={dark}>
+                {code}
+              </SyntaxHighlighter>
+              <svg
+                onClick={copyToClip}
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="currentColor"
+                class="bi bi-clipboard shadow"
+                style={{cursor: 'pointer'}}
+                viewBox="0 0 16 16">
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
+              </svg>
+            </div>
           ) : (
-            ''
+            ""
           )}
         </div>
       </div>
+      <ToastContainer/>
     </>
   );
 }
 export default SandboxPage;
-
-
