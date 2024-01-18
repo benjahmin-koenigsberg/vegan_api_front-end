@@ -10,9 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 function UploadForm() {
   const navigate = useNavigate();
 
-  const [image, setImage] = useState();
-  const [form, setForm] = useState({ created_by: "", tag: "" });
-  const [memeInfo, setMemeInfo] = useState({memeUrl: '', file_name: '',  asset_id: '',  width: "", height: '', });
+  const [ image, setImage] = useState();
+  const [form, setForm] = useState({ created_by: "", tag: "", existing_url: "" , file: "" });
+  const [ memeInfo, setMemeInfo ] = useState({ memeUrl: '', file_name: '',  etag: '',  width: "", height: '', });
 
 
 const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
@@ -24,38 +24,35 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
   };
 
   const handleImage = async (e) => {
-    const image = e.target.files[0];
+    // const image = e.target.files[0]
+    // setForm({ ...form, [e.target.name]: e.target.value });
+   // const image =  e.target.files[0] || e.target.value;
+   const image = form.existing_url ? form.existing_url : e.target.files[0];
 
     setImage(image);
 
     //console.log(image);
-
-      const formData = new FormData();
-      formData.append("file", image);
-      formData.append("upload_preset", "vegan_meme_api");
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "vegan_meme_api");
 
     try {
-      const response = await axios.post(
-        CLOUDINARY_URL,
-        formData
-      );
+      const response = await axios.post(CLOUDINARY_URL, formData);
       setMemeInfo({
         memeUrl: response.data.url,
         file_name: response.data.original_filename,
         width: response.data.width,
         height: response.data.height,
         type: response.data.type,
-        asset_id: response.data.asset_id,
+        etag: response.data.etag,
       });
       //console.log(response.data.url);
     } catch (error) {
       console.error(error);
     }
-
-
   };
 
-  const handleApi = async (e) => {
+  const handleUpload = async (e) => {
 
     if (form.memeUrl === '' ){
       toast.error('Please upload a meme before submitting')
@@ -72,9 +69,8 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
             tag: form.tag,
             height: memeInfo.height,
             width: memeInfo.width,
-            asset_id: memeInfo.asset_id,
+            etag: memeInfo.etag,
             type: memeInfo.type
-
           });
 
           toast.success('Meme uploaded! 👍',  {
@@ -89,8 +85,14 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
           });
     } catch (error) {
 
+    } finally {
+      setForm({ created_by: "", tag: "", existing_url: "", file: "" });
+      
     }
+
   };
+
+
 
 
   return (
@@ -101,15 +103,60 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
           <div className="main-container">
             <div className="">
               <form className="form">
-                <div className="label-input-div">
-                  <label htmlFor="file">Select a meme</label>
-                  <input
-                    id="file-field"
-                    type="file"
-                    name="file"
-                    onChange={(e) => handleImage(e)}
-                  />
-                </div>
+                {form.existing_url ? (
+                  <div className="label-input-div">
+                    <label htmlFor="file">Select a meme</label>
+                    <input
+                      id="file-field"
+                      type="file"
+                      name="file"
+                      onChange={(e) => handleImage(e)}
+                      disabled
+                    />
+                  </div>
+                ) : (
+                  <div className="label-input-div">
+                    <label htmlFor="file">Select a meme</label>
+                    <input
+                      id="file-field"
+                      type="file"
+                      name="file"
+                      onChange={(e) => {
+                        handleForm(e);
+                        handleImage(e);
+                      }}
+                    />
+                  </div>
+                )}
+
+                {form.file ? (
+                  <div className="label-input-div">
+                    <label htmlFor="file">Enter an exisiting meme url</label>
+                    <input
+                      id="file-field"
+                      type="text"
+                      name="existing_url"
+                      onChange={(e) => {
+                        handleImage(e);
+                      }}
+                      disabled
+                    />
+                  </div>
+                ) : (
+                  <div className="label-input-div">
+                    <label htmlFor="file">Enter an exisiting meme url</label>
+                    <input
+                      id="file-field"
+                      type="text"
+                      name="existing_url"
+                      onChange={(e) => {
+                        handleForm(e);
+                        handleImage(e);
+                      }}
+                    />
+                  </div>
+                )}
+
                 <div className="label-input-div">
                   <label>Created By</label>
                   <input
@@ -127,7 +174,10 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
                     ))}
                   </select>
                 </div>
-                <button onClick={handleApi}>Upload</button>
+                <div className="d-flex gap-5">
+                  <button onClick={handleUpload}>Upload</button>
+                  {/* <button className="bg-primary">Upload url</button> */}
+                </div>
               </form>
             </div>
           </div>
