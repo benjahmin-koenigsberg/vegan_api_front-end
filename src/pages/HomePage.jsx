@@ -14,16 +14,16 @@ function HomePage() {
       <Header />
       <Hero />
       {/* <div style={{  margin: "auto", padding: '0 1rem' }} > */}
-      <div className="container">
+      <div className="container ">
         <Donate />
         <h2>URLs</h2>
-        <div  >
+        <div >
           {endpoints.map((endpoint, index) => (
             <UrlCard endpoint={endpoint} index={index} />
           ))
 
           }
-          <AccordionJsonItem />
+          {/* <AccordionJsonItem /> */}
 
         </div>
       </div>
