@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import axios from "axios";
 import "../AccordionUrlItem/AccordionUrlItem.css";
@@ -33,7 +35,7 @@ function AccordionJsonItem() {
         </h2>
         <div
           id="collapseOne"
-          class="accordion-collapse collapsed show"
+          class="accordion-collapse collapse show"
           aria-labelledby="headingOne"
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
@@ -50,7 +52,6 @@ function AccordionJsonItem() {
         </div>
       </div>
     </div>
-
   );
 }
 export default AccordionJsonItem;

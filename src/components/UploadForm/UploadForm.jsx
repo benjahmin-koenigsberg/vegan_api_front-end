@@ -11,8 +11,8 @@ function UploadForm() {
   const navigate = useNavigate();
 
   const [ image, setImage] = useState();
-  const [form, setForm] = useState({ created_by: "", tag: "", existing_url: "" , file: "" });
-  const [ memeInfo, setMemeInfo ] = useState({ memeUrl: '', file_name: '',  etag: '',  width: "", height: '', });
+  const [form, setForm] = useState({ created_by: "", tag: "", existing_url: '' , file: '' });
+  const [ memeInfo, setMemeInfo ] = useState({ memeUrl: '' , file_name: '',  etag: '',  width: "", height: '', });
 
 
 const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
@@ -54,12 +54,12 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
 
   const handleUpload = async (e) => {
 
-    if (form.memeUrl === '' ){
-      toast.error('Please upload a meme before submitting')
-      return;
-    }
-
     e.preventDefault();
+
+       if (!memeInfo.memeUrl) {
+         toast.error("Please upload a meme before submitting");
+         return;
+       }
 
     try {
           await axios.post(UPLOAD_URL, {
@@ -87,7 +87,7 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
 
     } finally {
       setForm({ created_by: "", tag: "", existing_url: "", file: "" });
-      
+
     }
 
   };
@@ -105,7 +105,7 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
               <form className="form">
                 {form.existing_url ? (
                   <div className="label-input-div">
-                    <label htmlFor="file">Select a meme</label>
+                    <label htmlFor="file">Upload a meme</label>
                     <input
                       id="file-field"
                       type="file"
@@ -116,7 +116,7 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
                   </div>
                 ) : (
                   <div className="label-input-div">
-                    <label htmlFor="file">Select a meme</label>
+                    <label htmlFor="file">Upload a meme</label>
                     <input
                       id="file-field"
                       type="file"
@@ -131,7 +131,7 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
 
                 {form.file ? (
                   <div className="label-input-div">
-                    <label htmlFor="file">Enter an exisiting meme url</label>
+                    <label htmlFor="file">Paste a meme url</label>
                     <input
                       id="file-field"
                       type="text"
@@ -144,7 +144,7 @@ const UPLOAD_URL = import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api
                   </div>
                 ) : (
                   <div className="label-input-div">
-                    <label htmlFor="file">Enter an exisiting meme url</label>
+                    <label htmlFor="file">Paste a meme url</label>
                     <input
                       id="file-field"
                       type="text"
