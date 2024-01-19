@@ -1,5 +1,3 @@
-/** @format */
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UploadForm.css";
@@ -8,6 +6,8 @@ import { config } from "dotenv";
 import { tagOptions } from "../../assets/endPoints";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import emailjs from "@emailjs/browser";
+
 
 function UploadForm() {
   const navigate = useNavigate();
@@ -30,7 +30,35 @@ function UploadForm() {
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
   const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
   const UPLOAD_URL =
-    import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api/v1/meme/add";
+  import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api/v1/meme/add";
+
+
+    const sendEmail = () => {
+      emailjs
+        .send(
+          "service_7u0w0cb",
+          "template_x5ku14t",
+          {
+            from_name: "benjahmin",
+            to_name: "Benjahmin",
+            from_email: "benjamin.lakin@gmail.com",
+            to_email: "benjahmin.lakin@gmail.com",
+            message: "meme uploaded",
+          },
+          "MaKWSfPyiE272Y8lz"
+        )
+        .then(
+          (result) => {
+            console.log(result);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    };
+
+
+
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -94,6 +122,9 @@ function UploadForm() {
         progress: undefined,
         theme: "dark",
       });
+
+sendEmail()
+
     } catch (error) {
     } finally {
       setForm({
