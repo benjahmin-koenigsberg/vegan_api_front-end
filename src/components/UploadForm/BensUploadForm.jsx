@@ -68,50 +68,49 @@ function BensUploadForm() {
     e.preventDefault();
 
     const password = window.prompt('Enter your password')
-    if(password === 'benjahmin'){
+    if (password === import.meta.env.VITE_BENS_UPLOAD_PASSWORD) {
 
-  if (!memeInfo.memeUrl) {
-    toast.error("Please upload a meme before submitting");
-    return;
-  }
+      if (!memeInfo.memeUrl) {
+        toast.error("Please upload a meme before submitting");
+        return;
+      }
 
-  try {
-    await axios.post(BENS_UPLOAD_URL, {
-      created_by: form.created_by,
-      meme_url: memeInfo.memeUrl,
-      file_name: memeInfo.file_name,
-      tag: form.tag,
-      height: memeInfo.height,
-      width: memeInfo.width,
-      etag: memeInfo.etag,
-      type: memeInfo.type,
-    });
+      try {
+        await axios.post(BENS_UPLOAD_URL, {
+          created_by: form.created_by,
+          meme_url: memeInfo.memeUrl,
+          file_name: memeInfo.file_name,
+          tag: form.tag,
+          height: memeInfo.height,
+          width: memeInfo.width,
+          etag: memeInfo.etag,
+          type: memeInfo.type,
+        });
 
-    toast.success("Meme uploaded! 👍", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+        toast.success("Meme uploaded! 👍", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
 
-    sendEmail();
-  } catch (error) {
-  } finally {
-    setForm({
-      created_by: "",
-      tag: "",
-      existing_url: "",
-      file: "",
-    });
-  }
-
+        sendEmail();
+      } catch (error) {
+      } finally {
+        setForm({
+          created_by: "",
+          tag: "",
+          existing_url: "",
+          file: "",
+        });
+      }
     } else {
-        alert('Invalid passowrd')
-        return
+      alert("Invalid passowrd");
+      return;
     }
   };
 

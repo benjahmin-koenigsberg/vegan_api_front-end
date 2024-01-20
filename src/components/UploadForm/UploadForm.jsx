@@ -34,27 +34,34 @@ function UploadForm() {
 
 
     const sendEmail = () => {
-      emailjs
-        .send(
-          "service_7u0w0cb",
-          "template_x5ku14t",
-          {
-            from_name: "benjahmin",
-            to_name: "Benjahmin",
-            from_email: "benjamin.lakin@gmail.com",
-            to_email: "benjahmin.lakin@gmail.com",
-            message: `meme uploaded : ${memeInfo.memeUrl}`,
-          },
-          "MaKWSfPyiE272Y8lz"
-        )
-        .then(
-          (result) => {
-            console.log(result);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+     try {
+
+ emailjs
+   .send(
+     "service_7u0w0cb",
+     "template_x5ku14t",
+     {
+       from_name: "Vegan API",
+       to_name: "Benjahmin",
+       from_email: "benjamin.lakin@gmail.com",
+       to_email: "benjahmin.lakin@gmail.com",
+       message: `meme uploaded! 👍 \n \n meme url : ${memeInfo.memeUrl}`,
+     },
+     "MaKWSfPyiE272Y8lz"
+   )
+   .then(
+     (result) => {
+       console.log(result);
+     },
+     (error) => {
+       console.log(error);
+     }
+   );
+
+     } catch (error) {
+      console.log(error)
+
+     }
     };
 
 
