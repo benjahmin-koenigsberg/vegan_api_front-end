@@ -8,6 +8,9 @@ import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import FormInput from "../components/FormInput";
 import { tagOptions, authorOptions, quoteIdsArr } from "../assets/endPoints";
 import { ToastContainer, toast } from "react-toastify";
+import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
+SyntaxHighlighter.registerLanguage("javascript", javascript);
+
 
 const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
 let base = '';
