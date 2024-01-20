@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UploadForm.css";
@@ -6,10 +8,8 @@ import { config } from "dotenv";
 import { tagOptions } from "../../assets/endPoints";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import emailjs from "@emailjs/browser";
 
-
-function UploadForm() {
+function BensUploadForm() {
   const navigate = useNavigate();
 
   const [image, setImage] = useState();
@@ -29,34 +29,7 @@ function UploadForm() {
 
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
   const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
-  const UPLOAD_URL =
-  import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api/v1/meme/add";
-
-
-    const sendEmail = () => {
-      emailjs
-        .send(
-          "service_7u0w0cb",
-          "template_x5ku14t",
-          {
-            from_name: "benjahmin",
-            to_name: "Benjahmin",
-            from_email: "benjamin.lakin@gmail.com",
-            to_email: "benjahmin.lakin@gmail.com",
-            message: `meme uploaded : ${memeInfo.memeUrl}`,
-          },
-          "MaKWSfPyiE272Y8lz"
-        )
-        .then(
-          (result) => {
-            console.log(result);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-    };
-
+  const BENS_UPLOAD_URL = import.meta.env.VITE_BENS_UPLOAD_URL  || "http://localhost:8080/api/v1/meme/ben/add";
 
 
 
@@ -65,9 +38,7 @@ function UploadForm() {
   };
 
   const handleImage = async (e) => {
-    // const image = e.target.files[0]
-    // setForm({ ...form, [e.target.name]: e.target.value });
-    // const image =  e.target.files[0] || e.target.value;
+
     const image = form.existing_url ? form.existing_url : e.target.files[0];
     setImage(image);
 
@@ -93,52 +64,60 @@ function UploadForm() {
   };
 
   const handleUpload = async (e) => {
+
     e.preventDefault();
 
-    if (!memeInfo.memeUrl) {
-      toast.error("Please upload a meme before submitting");
-      return;
-    }
+    const password = window.prompt('Enter your password')
+    if(password === 'benjahmin'){
 
-    try {
-      await axios.post(UPLOAD_URL, {
-        created_by: form.created_by,
-        meme_url: memeInfo.memeUrl,
-        file_name: memeInfo.file_name,
-        tag: form.tag,
-        height: memeInfo.height,
-        width: memeInfo.width,
-        etag: memeInfo.etag,
-        type: memeInfo.type,
-      });
+  if (!memeInfo.memeUrl) {
+    toast.error("Please upload a meme before submitting");
+    return;
+  }
 
-      toast.success("Meme uploaded! 👍", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+  try {
+    await axios.post(BENS_UPLOAD_URL, {
+      created_by: form.created_by,
+      meme_url: memeInfo.memeUrl,
+      file_name: memeInfo.file_name,
+      tag: form.tag,
+      height: memeInfo.height,
+      width: memeInfo.width,
+      etag: memeInfo.etag,
+      type: memeInfo.type,
+    });
 
-sendEmail()
+    toast.success("Meme uploaded! 👍", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
-    } catch (error) {
-    } finally {
-      setForm({
-        created_by: "",
-        tag: "",
-        existing_url: "",
-        file: "",
-      });
+    sendEmail();
+  } catch (error) {
+  } finally {
+    setForm({
+      created_by: "",
+      tag: "",
+      existing_url: "",
+      file: "",
+    });
+  }
+
+    } else {
+        alert('Invalid passowrd')
+        return
     }
   };
 
   return (
     <>
-      <h1>Upload Meme 🖼️</h1>
+      <h1>Benjahmins' Upload Page 🖼️</h1>
       <div className="upload-section">
         <section className="">
           <div className="main-container">
@@ -233,4 +212,4 @@ sendEmail()
   );
 }
 
-export default UploadForm;
+export default BensUploadForm;
