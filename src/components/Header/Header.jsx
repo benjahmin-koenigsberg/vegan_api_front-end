@@ -8,7 +8,7 @@ function Header() {
       <div>
         <Link to="/">
           <span className="nav-title">
-            <img src={logo} className='logo'/>
+            <img src={logo} className="logo" />
             Vegan Meme API
           </span>
         </Link>
@@ -16,14 +16,17 @@ function Header() {
       <div>
         <nav>
           <ul className="nav-items">
+            <Link to="/">
+              <li>Home 🏠</li>
+            </Link>
             <Link to="/sandbox">
-              <li>Sandbox</li>
+              <li>Sandbox 🥼</li>
             </Link>
             <Link to="/upload">
-              <li>Upload</li>
+              <li>Upload ⬆️</li>
             </Link>
             <Link to="/about">
-              <li>About</li>
+              <li>About 💁</li>
             </Link>
             <a href="https://www.buymeacoffee.com/benjahmin" target="_blank">
               <li>Buy Me a Coffee ☕</li>
