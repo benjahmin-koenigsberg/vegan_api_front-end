@@ -174,8 +174,10 @@ if (form.type === "meme") {
         </section>
         <div id="code-box" className="m-auto my-4 w-75  ">
           {show ? (
-            <div className="d-flex align-items-center gap-2 justify-content-center">
-              <SyntaxHighlighter
+            <div className="d-flex justify-content-center gap-4">
+            <div className="d-flex align-items-center gap-2 justify-content-center font-monospace bg-dark text-light px-5 py-2">
+              {code}
+              {/* <SyntaxHighlighter
                 lineProps={{
                   style: {
                     wordBreak: "break-all",
@@ -187,7 +189,8 @@ if (form.type === "meme") {
                 language="javascript"
                 style={dark}>
                 {code}
-              </SyntaxHighlighter>
+              </SyntaxHighlighter> */}
+              </div>
               <svg
                 onClick={copyToClip}
                 xmlns="http://www.w3.org/2000/svg"
