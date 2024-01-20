@@ -74,7 +74,7 @@ function UploadForm() {
     //console.log(image);
     const formData = new FormData();
     formData.append("file", image);
-    formData.append("upload_preset", "vegan_meme_api");
+    formData.append("upload_preset", "user_uploads");
 
     try {
       const response = await axios.post(CLOUDINARY_URL, formData);
