@@ -5,7 +5,7 @@ import Donate from "../components/Donate/Donate";
 import { endpoints } from "../assets/endPoints";
 import UrlCard from "../components/UrlCard/UrlCard";
 import AccordionJsonItem from "../components/AccordionJsonItem/AccordionJsonItem";
-
+import Footer from "../components/Footer";
 
 function HomePage() {
 
@@ -23,10 +23,11 @@ function HomePage() {
           ))
 
           }
-          {/* <AccordionJsonItem /> */}
+          <AccordionJsonItem />
 
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

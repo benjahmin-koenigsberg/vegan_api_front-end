@@ -3,13 +3,14 @@ import Header from "../components/Header/Header";
 import { endpoints } from "../assets/endPoints";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import FormInput from "../components/FormInput";
 import { tagOptions, authorOptions, quoteIdsArr } from "../assets/endPoints";
 import { ToastContainer, toast } from "react-toastify";
-import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
-SyntaxHighlighter.registerLanguage("javascript", javascript);
+// import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
+// SyntaxHighlighter.registerLanguage("javascript", javascript);
+import Footer from "../components/Footer";
 
 
 const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
@@ -209,6 +210,7 @@ if (form.type === "meme") {
           )}
         </div>
       </div>
+      <Footer />
       <ToastContainer/>
     </>
   );

@@ -2,6 +2,7 @@
 
 import Header from "../components/Header/Header";
 import Accordion from "../components/Accordion/Accordion";
+import Footer from "../components/Footer";
 
 function AboutPage() {
   return (
@@ -13,6 +14,7 @@ function AboutPage() {
           <Accordion />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -20,38 +20,73 @@ const veganMeme = `{
 
 function AccordionJsonItem() {
   return (
-    <div class="accordion" id="accordionExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button
-            class="accordion-button collapsed mt-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne">
-            Mongoose Schema
-          </button>
-        </h2>
-        <div
-          id="collapseOne"
-          class="accordion-collapse collapse show"
-          aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <SyntaxHighlighter
-              lineProps={{
-                style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
-              }}
-              wrapLines={true}
-              language="javascript"
-              style={dark}>
-              {veganMeme}
-            </SyntaxHighlighter>
+    <>
+      <div
+        className="accordion accordion-flush lh-lg border rounded shadow"
+        id="accordionFlushExample">
+        <div className="accordion-item">
+          <h2
+            className="accordion-header font-monospace "
+            id="flush-headingOne">
+            <button
+              className="accordion-button collapsed mt-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne">
+              Mongo database Schema
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            className="accordion-collapse collapse "
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              <div className="d-flex align-items-center  justify-content-center font-monospace bg-dark text-light px-5 py-2">
+                {veganMeme}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
+    // <div class="accordion " id="accordionExample">
+    //   <div class="accordion-item">
+    //     <h2 class="accordion-header" id="headingOne">
+    //       <button
+    //         className="accordion-button collapsed mt-0"
+    //         type="button"
+    //         data-bs-toggle="collapse"
+    //         data-bs-target="#collapseOne"
+    //         aria-expanded="true"
+    //         aria-controls="collapseOne">
+    //         Mongoose Schema
+    //       </button>
+    //     </h2>
+    //     <div
+    //       id="collapseOne"
+    //       class="accordion-collapse collapse show"
+    //       aria-labelledby="headingOne"
+    //       data-bs-parent="#accordionExample">
+    //       <div class="accordion-body">
+    //         <div className="d-flex align-items-center gap-2 justify-content-center font-monospace bg-dark text-light px-5 py-2">
+    //           {veganMeme}
+    //           {/* <SyntaxHighlighter
+    //           lineProps={{
+    //             style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
+    //           }}
+    //           wrapLines={true}
+    //           language="javascript"
+    //           style={dark}>
+    //           {veganMeme}
+    //         </SyntaxHighlighter> */}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
   );
 }
 export default AccordionJsonItem;
