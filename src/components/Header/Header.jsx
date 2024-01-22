@@ -8,7 +8,7 @@ function Header() {
       <div>
         <Link to="/">
           <span className="nav-title">
-            <img src={logo} className="logo" alt='vegan API logo'/>
+            <img src={logo} className="logo" alt="vegan API logo" />
             Vegan Meme API
           </span>
         </Link>
@@ -18,6 +18,9 @@ function Header() {
           <ul className="nav-items">
             <Link to="/">
               <li>Home 🏠</li>
+            </Link>
+            <Link to="https://www.postman.com/spaceflight-saganist-32434781/workspace/veganmemeapi/documentation/25444855-92fd83fa-355d-4b5d-98bf-c81f9ba5cbc4" target='_blank'>
+              <li>API Docs 🗒️</li>
             </Link>
             <Link to="/sandbox">
               <li>Sandbox 🥼</li>
