@@ -15,6 +15,7 @@ function Model({handleClose, preview, endpoint, show, handlePreview}) {
             <img
               src={preview?.url}
               className="img-fluid"
+              alt={preview?.file_name}
             />
           </div>
         ) : (

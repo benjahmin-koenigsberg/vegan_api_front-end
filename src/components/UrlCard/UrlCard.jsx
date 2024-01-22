@@ -8,7 +8,7 @@ import { Modal } from "react-bootstrap";
 
 function UrlCard({ endpoint }) {
 
-  const [preview, setPreview] = useState({ url: "", quote: "", author: "" });
+  const [preview, setPreview] = useState({ url: "", quote: "", author: "" , file_name: ""});
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -18,13 +18,15 @@ function UrlCard({ endpoint }) {
 
   const handlePreview = async () => {
     await axios
+    // .get('http://localhost:8080/api/v1/quotes/random/')
       .get(endpoint.url)
       .then((res) => {
-        console.log(res.data.data);
+        console.log(res.data.data.meme_url);
          setPreview({
-            url: res.data.data,
+            url: res.data.data.meme_url,
             quote: res.data.data.quote,
             author: res.data.data.author,
+            file_name: res.data.data?.file_name
           });
         // setPreview(res.data.data);
       })
