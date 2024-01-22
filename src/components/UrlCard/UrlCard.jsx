@@ -35,7 +35,7 @@ function UrlCard({ endpoint }) {
 
 
   return (
-    <>
+    <article>
       <p className="m-0 font-monospace">{endpoint.description} </p>
       <table className="table bg-light border rounded shadow d-flex justify-content-between align-items-center px-2"
       style={{ fontSize: 'calc(50% + 1vmin)' }}>
@@ -74,7 +74,7 @@ function UrlCard({ endpoint }) {
         show={show}
         handlePreview={handlePreview}
       />
-    </>
+    </article>
   );
 }
 export default UrlCard;

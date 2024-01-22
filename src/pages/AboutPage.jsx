@@ -8,12 +8,12 @@ function AboutPage() {
   return (
     <div>
       <Header />
-      <div className="container mt-5 ">
+      <main className="container mt-5 ">
         <h2>About</h2>
-        <div className="container mt-5">
+        <section className="container mt-5">
           <Accordion />
-        </div>
-      </div>
+        </section>
+      </main>
       <Footer />
     </div>
   );

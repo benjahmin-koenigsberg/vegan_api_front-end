@@ -31,7 +31,7 @@ function Table({ url, type }) {
   };
 
   return (
-    <>
+    <article>
       <table className="table bg-light">
         <thead className="">
           <tr>
@@ -50,7 +50,7 @@ function Table({ url, type }) {
           </tr>
         </tbody>
       </table>
-    </>
+    </article>
   );
 }
 export default Table;

@@ -8,7 +8,7 @@ function Header() {
       <div>
         <Link to="/">
           <span className="nav-title">
-            <img src={logo} className="logo" />
+            <img src={logo} className="logo" alt='vegan API logo'/>
             Vegan Meme API
           </span>
         </Link>

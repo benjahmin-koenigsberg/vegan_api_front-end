@@ -24,7 +24,7 @@ function Hero() {
           <p>We have {numOfMemes} memes for now</p>
         </div>
         <Link to='/upload' >
-          <button>Give me a meme</button>
+          <button>Upload a meme</button>
         </Link>
       </div>
     </section>

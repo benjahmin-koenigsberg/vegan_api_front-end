@@ -11,22 +11,22 @@ function Model({handleClose, preview, endpoint, show, handlePreview}) {
       </Modal.Header>
       <Modal.Body>
         {endpoint.type === "meme" ? (
-          <div className="text-center d-flex justify-content-center align-items-center">
+          <main className="text-center d-flex justify-content-center align-items-center">
             <img
               src={preview?.url}
               className="img-fluid"
               alt={preview?.file_name}
             />
-          </div>
+          </main>
         ) : (
-          <div className="text-center m-auto p-5"
+          <main className="text-center m-auto p-5"
           >
             <blockquote
               style={{ fontFamily: "Josefin Sans", fontSize: '1.5rem'}}>
               " {preview.quote} "
             </blockquote>
             <p className="">- {preview.author}</p>
-          </div>
+          </main>
         )}
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center gap-5">

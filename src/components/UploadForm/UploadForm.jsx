@@ -144,7 +144,7 @@ sendEmail()
   };
 
   return (
-    <>
+    <main>
       <h1>Upload Meme 🖼️</h1>
       <div className="upload-section">
         <section className="">
@@ -236,7 +236,7 @@ sendEmail()
         </section>
       </div>
       <ToastContainer />
-    </>
+    </main>
   );
 }
 

@@ -4,10 +4,10 @@ import BensUploadForm from "../components/UploadForm/BensUploadForm";
 
 function BensUploadPage() {
   return (
-    <div>
+    <main>
       <Header />
       <BensUploadForm />
-    </div>
+    </main>
   );
 }
 export default BensUploadPage;
