@@ -160,7 +160,20 @@ function UploadForm() {
           <div className="main-container">
             <div className="">
               <form className="form" id="form">
-                {form.existing_url ? (
+                  <div className="label-input-div">
+                    <label htmlFor="file">Upload a meme</label>
+                    <input
+                      id="file-field"
+                      type="file"
+                      name="file"
+                      value={form.file}
+                      onChange={(e) => {
+                        handleForm(e);
+                        handleImage(e);
+                      }}
+                    />
+                    </div>
+                {/* {form.existing_url ? (
                   <div className="label-input-div">
                     <label htmlFor="file">Upload a meme</label>
                     <input
@@ -186,9 +199,9 @@ function UploadForm() {
                       }}
                     />
                   </div>
-                )}
+                )} */}
 
-                {form.file ? (
+                {/* {form.file ? (
                   <div className="label-input-div">
                     <label htmlFor="file">Paste a meme url</label>
                     <input
@@ -216,7 +229,7 @@ function UploadForm() {
                       }}
                     />
                   </div>
-                )}
+                )} */}
 
                 <div className="label-input-div">
                   <label>Created By</label>
