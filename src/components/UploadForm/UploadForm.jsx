@@ -143,7 +143,13 @@ function UploadForm() {
     }
 
     sendEmail();
-    setMemeInfo({})
+    setMemeInfo({
+      memeUrl: "",
+      file_name: "",
+      etag: "",
+      width: "",
+      height: "",
+    });
   };
 
   return (
