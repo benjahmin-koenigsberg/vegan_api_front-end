@@ -130,7 +130,7 @@ function UploadForm() {
         theme: "dark",
       });
 
-sendEmail()
+
 
     } catch (error) {
     } finally {
@@ -141,6 +141,9 @@ sendEmail()
         file: "",
       });
     }
+
+    sendEmail();
+    setMemeInfo({})
   };
 
   return (
