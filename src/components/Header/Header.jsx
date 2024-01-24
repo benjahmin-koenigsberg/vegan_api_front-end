@@ -1,6 +1,8 @@
-import './Header.css'
-import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png'
+/** @format */
+
+import "./Header.css";
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 function Header() {
   return (
@@ -16,30 +18,34 @@ function Header() {
       <div>
         <nav>
           <ul className="nav-items">
-            <Link to="/">
-              <li>Home 🏠</li>
-            </Link>
-            <Link
-              to="https://documenter.getpostman.com/view/25444855/2s9YymHQJX"
-              target="_blank">
-              <li>API Docs 🗒️</li>
-            </Link>
-            <Link to="/sandbox">
-              <li>Sandbox 🥼</li>
-            </Link>
-            <Link to="/upload">
-              <li>Upload ⬆️</li>
-            </Link>
-            <Link to="/about">
-              <li>About 💁</li>
-            </Link>
-            <a href="https://www.buymeacoffee.com/benjahmin" target="_blank">
-              <li>Buy Me a Coffee ☕</li>
-            </a>
+            <li>
+              <Link to="/">Home 🏠</Link>
+            </li>
+            <li>
+              <Link
+                to="https://documenter.getpostman.com/view/25444855/2s9YymHQJX"
+                target="_blank">
+                API Docs 🗒️
+              </Link>
+            </li>
+            <li>
+              <Link to="/sandbox">Sandbox 🥼 </Link>
+            </li>
+            <li>
+              <Link to="/upload">Upload ⬆️</Link>
+            </li>
+            <li>
+              <Link to="/about">About 💁</Link>
+            </li>
+            <li>
+              <a href="https://www.buymeacoffee.com/benjahmin" target="_blank">
+                Buy Me a Coffee ☕
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
   );
 }
-export default Header
+export default Header;
