@@ -10,22 +10,15 @@ function Table({ url, type }) {
   const [preview, setPreview] = useState("");
 
   const handlePreview = async () => {
-
-
     if (type === "meme") {
       await axios
         .get(url)
-        .then((res) => {
-          // setPreview(res.data.data[0].meme_url);
-        })
+        .then((res) => {})
         .catch((err) => console.log(err));
     } else {
       await axios
         .get(url)
-        .then((res) => {
-          //console.log(res.data.data.quote)
-          // setPreview(res.data.data.quote);
-        })
+        .then((res) => {})
         .catch((err) => console.log(err));
     }
   };
@@ -35,14 +28,14 @@ function Table({ url, type }) {
       <table className="table bg-light">
         <thead className="">
           <tr>
-            <th scope="col " className="table-text">
+            <th scope="col" role="columnheader" className="table-text">
               {url}
             </th>
           </tr>
         </thead>
-        <tbody  >
+        <tbody>
           <tr>
-            <th scope="row" className="table-text">
+            <th scope="col" role="columnheader" className="table-text">
               <a href={url}>
                 <button>test</button>
               </a>

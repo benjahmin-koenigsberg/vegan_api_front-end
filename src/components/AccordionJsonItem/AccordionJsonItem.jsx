@@ -52,41 +52,7 @@ function AccordionJsonItem() {
         </div>
       </div>
     </>
-    // <div class="accordion " id="accordionExample">
-    //   <div class="accordion-item">
-    //     <h2 class="accordion-header" id="headingOne">
-    //       <button
-    //         className="accordion-button collapsed mt-0"
-    //         type="button"
-    //         data-bs-toggle="collapse"
-    //         data-bs-target="#collapseOne"
-    //         aria-expanded="true"
-    //         aria-controls="collapseOne">
-    //         Mongoose Schema
-    //       </button>
-    //     </h2>
-    //     <div
-    //       id="collapseOne"
-    //       class="accordion-collapse collapse show"
-    //       aria-labelledby="headingOne"
-    //       data-bs-parent="#accordionExample">
-    //       <div class="accordion-body">
-    //         <div className="d-flex align-items-center gap-2 justify-content-center font-monospace bg-dark text-light px-5 py-2">
-    //           {veganMeme}
-    //           {/* <SyntaxHighlighter
-    //           lineProps={{
-    //             style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
-    //           }}
-    //           wrapLines={true}
-    //           language="javascript"
-    //           style={dark}>
-    //           {veganMeme}
-    //         </SyntaxHighlighter> */}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+ 
   );
 }
 export default AccordionJsonItem;

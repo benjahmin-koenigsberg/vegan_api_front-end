@@ -19,7 +19,7 @@ function HomePage() {
         <h2>URLs</h2>
         <div >
           {endpoints.map((endpoint, index) => (
-            <UrlCard endpoint={endpoint} index={index} />
+            <UrlCard endpoint={endpoint} key={index} index={index} />
           ))
 
           }

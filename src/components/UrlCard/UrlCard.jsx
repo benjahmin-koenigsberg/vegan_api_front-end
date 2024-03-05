@@ -18,7 +18,6 @@ function UrlCard({ endpoint }) {
 
   const handlePreview = async () => {
     await axios
-    // .get('http://localhost:8080/api/v1/quotes/random/')
       .get(endpoint.url)
       .then((res) => {
         console.log(res.data.data.meme_url);
@@ -28,7 +27,6 @@ function UrlCard({ endpoint }) {
             author: res.data.data.author,
             file_name: res.data.data?.file_name
           });
-        // setPreview(res.data.data);
       })
       .catch((err) => console.log(err));
   };

@@ -29,20 +29,18 @@ function BensUploadForm() {
 
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
   const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
-  const BENS_UPLOAD_URL = import.meta.env.VITE_BENS_UPLOAD_URL  || "http://localhost:8080/api/v1/meme/ben/add";
-
-
+  const BENS_UPLOAD_URL =
+    import.meta.env.VITE_BENS_UPLOAD_URL ||
+    "http://localhost:8080/api/v1/meme/ben/add";
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleImage = async (e) => {
-
     const image = form.existing_url ? form.existing_url : e.target.files[0];
     setImage(image);
 
-    //console.log(image);
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "vegan_meme_api");
@@ -57,19 +55,16 @@ function BensUploadForm() {
         type: response.data.type,
         etag: response.data.etag,
       });
-      //console.log(response.data.url);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleUpload = async (e) => {
-
     e.preventDefault();
 
-    const password = window.prompt('Enter your password')
+    const password = window.prompt("Enter your password");
     if (password === import.meta.env.VITE_BENS_UPLOAD_PASSWORD) {
-
       if (!memeInfo.memeUrl) {
         toast.error("Please upload a meme before submitting");
         return;
@@ -192,8 +187,10 @@ function BensUploadForm() {
                 <div className="label-input-div">
                   <label>Tag</label>
                   <select name="tag" value={form.tag} onChange={handleForm}>
-                    {tagOptions.map((tag) => (
-                      <option value={tag}>{tag}</option>
+                    {tagOptions.map((tag, index) => (
+                      <option value={tag} key={index}>
+                        {tag}
+                      </option>
                     ))}
                   </select>
                 </div>

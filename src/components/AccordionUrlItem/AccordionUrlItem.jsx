@@ -18,7 +18,6 @@ function AccordionUrlItem({ endpoint, index }) {
           }
           console.log(preview.url);
         } else {
-          //  console.log(res.data.data.quote);
           setPreview({
             ...preview,
             quote: res.data.data.quote,
@@ -36,10 +35,8 @@ function AccordionUrlItem({ endpoint, index }) {
           <button
             onClick={handlePreview}
             className="accordion-button collapsed"
-            //className="btn-primary collapsed"
             type="button"
             data-bs-toggle="collapse"
-            //target
             data-bs-target={`#flush-collapse${index}-url`}
             aria-expanded="false"
             aria-controls={`#flush-collapse${index}`}>

@@ -4,8 +4,8 @@ function FormInput({ optionsArray, handleForm, value, label, name}) {
       <label>Select a {label} </label>
       <select name={name} value={value} onChange={handleForm}>
         <option></option>
-        {optionsArray.map((option) => (
-          <option value={option}>{option}</option>
+        {optionsArray.map((option, index) => (
+          <option value={option} key={index}>{option}</option>
         ))}
       </select>
     </div>

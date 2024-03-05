@@ -3,13 +3,9 @@ import Header from "../components/Header/Header";
 import { endpoints } from "../assets/endPoints";
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import FormInput from "../components/FormInput";
 import { tagOptions, authorOptions, quoteIdsArr } from "../assets/endPoints";
 import { ToastContainer, toast } from "react-toastify";
-// import javascript from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
-// SyntaxHighlighter.registerLanguage("javascript", javascript);
 import Footer from "../components/Footer";
 
 
@@ -82,14 +78,12 @@ if (form.type === "meme") {
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    //setCode(base);
   };
 
 
 
   const handleShow = (e) => {
     e.preventDefault();
-    // setCode(base);
     setShow((prev) => !prev);
 
   };
@@ -178,19 +172,6 @@ if (form.type === "meme") {
             <div className="d-flex justify-content-center gap-4">
             <div className="d-flex align-items-center gap-2 justify-content-center font-monospace bg-dark text-light px-5 py-2">
               {code}
-              {/* <SyntaxHighlighter
-                lineProps={{
-                  style: {
-                    wordBreak: "break-all",
-                    whiteSpace: "pre-wrap",
-                    textAlign: "center",
-                  },
-                }}
-                wrapLines={true}
-                language="javascript"
-                style={dark}>
-                {code}
-              </SyntaxHighlighter> */}
               </div>
               <svg
                 onClick={copyToClip}
@@ -198,7 +179,7 @@ if (form.type === "meme") {
                 width="32"
                 height="32"
                 fill="currentColor"
-                class="bi bi-clipboard shadow"
+                className="bi bi-clipboard shadow"
                 style={{cursor: 'pointer'}}
                 alt="clip board icon"
                 viewBox="0 0 16 16">

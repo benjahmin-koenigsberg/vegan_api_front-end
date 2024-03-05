@@ -16,8 +16,8 @@ function Hero() {
     }, []);
 
   return (
-    <section className="hero-section ">
-      <div className="main-container container">
+    <section className="hero-section">
+      <div className="main-container container ">
         <div className="text-container">
           <h1>Vegan Meme API</h1>
           <p>Is a REST API to spread veganism thanks to vegan memes and quotes.</p>

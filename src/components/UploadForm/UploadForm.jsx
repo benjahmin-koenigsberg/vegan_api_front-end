@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UploadForm.css";
@@ -7,7 +9,6 @@ import { tagOptions } from "../../assets/endPoints";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "@emailjs/browser";
-
 
 function UploadForm() {
   const navigate = useNavigate();
@@ -30,55 +31,43 @@ function UploadForm() {
   const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL;
   const baseUrl = import.meta.env.VITE_BASE_URL || "http://localhost:8080";
   const UPLOAD_URL =
-  import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api/v1/meme/add";
+    import.meta.env.VITE_UPLOAD_URL || "http://localhost:8080/api/v1/meme/add";
 
-
-    const sendEmail = () => {
-     try {
-
- emailjs
-   .send(
-     "service_7u0w0cb",
-     "template_x5ku14t",
-     {
-       from_name: "Vegan API",
-       to_name: "Benjahmin",
-       from_email: "benjamin.lakin@gmail.com",
-       to_email: "benjahmin.lakin@gmail.com",
-       message: `meme uploaded! 👍 \n \n meme url : ${memeInfo.memeUrl}`,
-     },
-     "MaKWSfPyiE272Y8lz"
-   )
-   .then(
-     (result) => {
-       console.log(result);
-     },
-     (error) => {
-       console.log(error);
-     }
-   );
-
-     } catch (error) {
-      console.log(error)
-
-     }
-    };
-
-
-
+  const sendEmail = () => {
+    try {
+      emailjs
+        .send(
+          "service_7u0w0cb",
+          "template_x5ku14t",
+          {
+            from_name: "Vegan API",
+            to_name: "Benjahmin",
+            from_email: "benjamin.lakin@gmail.com",
+            to_email: "benjahmin.lakin@gmail.com",
+            message: `meme uploaded! 👍 \n \n meme url : ${memeInfo.memeUrl}`,
+          },
+          "MaKWSfPyiE272Y8lz"
+        )
+        .then(
+          (result) => {
+            console.log(result);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleImage = async (e) => {
-    // const image = e.target.files[0]
-    // setForm({ ...form, [e.target.name]: e.target.value });
-    // const image =  e.target.files[0] || e.target.value;
     const image = form.existing_url ? form.existing_url : e.target.files[0];
     setImage(image);
-
-    //console.log(image);
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "user_uploads");
@@ -93,7 +82,6 @@ function UploadForm() {
         type: response.data.type,
         etag: response.data.etag,
       });
-      //console.log(response.data.url);
     } catch (error) {
       console.error(error);
     }
@@ -129,9 +117,6 @@ function UploadForm() {
         progress: undefined,
         theme: "dark",
       });
-
-
-
     } catch (error) {
     } finally {
       setForm({
@@ -160,19 +145,19 @@ function UploadForm() {
           <div className="main-container">
             <div className="">
               <form className="form" id="form">
-                  <div className="label-input-div">
-                    <label htmlFor="file">Upload a meme</label>
-                    <input
-                      id="file-field"
-                      type="file"
-                      name="file"
-                      value={form.file}
-                      onChange={(e) => {
-                        handleForm(e);
-                        handleImage(e);
-                      }}
-                    />
-                    </div>
+                <div className="label-input-div">
+                  <label htmlFor="file">Upload a meme</label>
+                  <input
+                    id="file-field"
+                    type="file"
+                    name="file"
+                    value={form.file}
+                    onChange={(e) => {
+                      handleForm(e);
+                      handleImage(e);
+                    }}
+                  />
+                </div>
                 {/* {form.existing_url ? (
                   <div className="label-input-div">
                     <label htmlFor="file">Upload a meme</label>
@@ -243,8 +228,10 @@ function UploadForm() {
                 <div className="label-input-div">
                   <label>Tag</label>
                   <select name="tag" value={form.tag} onChange={handleForm}>
-                    {tagOptions.map((tag) => (
-                      <option value={tag}>{tag}</option>
+                    {tagOptions.map((tag, index) => (
+                      <option value={tag} key={index}>
+                        {tag}
+                      </option>
                     ))}
                   </select>
                 </div>
