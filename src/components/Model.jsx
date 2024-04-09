@@ -31,10 +31,10 @@ function Model({handleClose, preview, endpoint, show, handlePreview}) {
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center gap-5">
         <Button variant="secondary" onClick={handleClose}>
-          ❌
+          Close
         </Button>
         <Button variant="primary" onClick={handlePreview}>
-          🔄
+          Get another
         </Button>
       </Modal.Footer>
     </Modal>
